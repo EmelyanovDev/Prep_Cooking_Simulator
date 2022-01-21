@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea12565f9844accb9f14829fa335c65, type: 3}
+  m_Name: LowerBread
+  m_EditorClassIdentifier: 
+  suppliedProduct: {fileID: 9216925401684294555, guid: e3715d34b18aaf84d9e2c0a71f25d5eb, type: 3}
+  productsCount: 3
+  supplyPrice: 10
+  productIcon: {fileID: 6045817325144097370, guid: 179fdd4c7c6c0e04fb304e7002bce0df, type: 3}
