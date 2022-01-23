@@ -43,7 +43,6 @@ namespace Items
                 _selfTransform.position = Vector3.MoveTowards(_selfTransform.position, position, moveSpeed * Time.deltaTime);
                 yield return new WaitForFixedUpdate();
             }
-
         }
 
         public void AddChildItem(CollectingItem childItem) => _childItems.Add(childItem);
