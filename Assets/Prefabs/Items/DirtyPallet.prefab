@@ -260,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 5
   cookingQuality: 0
+  _childItems: []
   dirtStain: {fileID: 3236862432403444070}
   dirtTransparent: 0.7
   washingSpeed: 130

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pallet
   m_EditorClassIdentifier: 
   suppliedProduct: {fileID: 9216925401684294555, guid: 716b2ea53c1de7940a3e84064809ef0b, type: 3}
-  productsCount: 3
-  supplyPrice: 30
+  productsCount: 2
+  supplyPrice: 20
   productIcon: {fileID: 4723224909904280011, guid: 5a3941ece9978d640b49cd68019abdb6, type: 3}

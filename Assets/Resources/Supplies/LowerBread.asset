@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LowerBread
   m_EditorClassIdentifier: 
   suppliedProduct: {fileID: 9216925401684294555, guid: e3715d34b18aaf84d9e2c0a71f25d5eb, type: 3}
-  productsCount: 3
-  supplyPrice: 10
+  productsCount: 2
+  supplyPrice: 4
   productIcon: {fileID: 6045817325144097370, guid: 179fdd4c7c6c0e04fb304e7002bce0df, type: 3}

@@ -35,14 +35,14 @@ namespace Interactions.Dirt
             {
                 delayTime += Time.deltaTime;
                 timerImage.fillAmount = delayTime / cleaningTime;
-
+                
                 if (_breakCoroutine)
                 {
                     timerImage.fillAmount = 0f;
                     _tryingClean = false;
                     yield break;
                 }
-
+                
                 yield return null;
             }
             

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Bacon
   m_EditorClassIdentifier: 
   suppliedProduct: {fileID: 4754170759366060488, guid: a581d109ef2b2db47a6f3e80b85ae362, type: 3}
-  productsCount: 3
-  supplyPrice: 10
+  productsCount: 2
+  supplyPrice: 6
   productIcon: {fileID: 4377468990976413185, guid: 179fdd4c7c6c0e04fb304e7002bce0df, type: 3}

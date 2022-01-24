@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Tomatoes
   m_EditorClassIdentifier: 
   suppliedProduct: {fileID: 6342797922137966867, guid: 71f0a8cb134487747ba7ae5abe33d447, type: 3}
-  productsCount: 3
-  supplyPrice: 10
+  productsCount: 2
+  supplyPrice: 6
   productIcon: {fileID: -3451940149458086453, guid: 5a3941ece9978d640b49cd68019abdb6, type: 3}

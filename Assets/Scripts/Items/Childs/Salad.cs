@@ -1,3 +1,4 @@
+using Sounds;
 using UnityEngine;
 
 namespace Items.Childs
@@ -9,13 +10,24 @@ namespace Items.Childs
         [SerializeField] private float coloringMultiplier = 0.002f;
         
         private MeshRenderer _renderer;
+        private SoundsCall _soundsCall;
+        private bool _soundPlayed;
 
-        private void Awake() => _renderer = GetComponent<MeshRenderer>();
+        private void Awake()
+        {
+            _renderer = GetComponent<MeshRenderer>();
+            _soundsCall = SoundsCall.Instance;
+        }
 
         public void Washing()
         {
-            if(CookingQuality < 100)
+            if(CookingQuality <= 100)
                 cookingQuality += preparationSpeed * Time.deltaTime;
+            if (cookingQuality >= 100 && !_soundPlayed)
+            {
+                _soundsCall.PlayTap();
+                _soundPlayed = true;
+            }
             
             var color = _renderer.material.color;
             float coloringValue = preparationSpeed * coloringMultiplier * Time.deltaTime;

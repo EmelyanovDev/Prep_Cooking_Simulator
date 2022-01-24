@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Meat
   m_EditorClassIdentifier: 
   suppliedProduct: {fileID: 9216925401684294555, guid: ac22457f311c6f24b90e1b9069f5df73, type: 3}
-  productsCount: 3
-  supplyPrice: 10
+  productsCount: 2
+  supplyPrice: 6
   productIcon: {fileID: 480360722801572344, guid: 179fdd4c7c6c0e04fb304e7002bce0df, type: 3}

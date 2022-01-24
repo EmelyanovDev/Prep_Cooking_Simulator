@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: UpperBread
   m_EditorClassIdentifier: 
   suppliedProduct: {fileID: 9216925401684294555, guid: edae7446e6091884caca3e11fd1ef0d2, type: 3}
-  productsCount: 3
-  supplyPrice: 10
+  productsCount: 2
+  supplyPrice: 4
   productIcon: {fileID: -6027656427536946433, guid: 5a3941ece9978d640b49cd68019abdb6, type: 3}

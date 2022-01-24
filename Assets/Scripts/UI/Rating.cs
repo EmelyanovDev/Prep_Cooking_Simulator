@@ -14,7 +14,6 @@ namespace UI
         [SerializeField] private float standingTime;
 
         private Slider _ratingSlider;
-        private List<float> _evaluations = new List<float>();
         private RectTransform _selfTransform;
         private Vector2 _startPosition;
 
@@ -41,11 +40,7 @@ namespace UI
         {
             StartCoroutine(MoveTo(0, endPosition));
             
-            _evaluations.Add(value);
-            float evaluation = 0f;
-            if(_evaluations.Count != 0)
-                evaluation = _evaluations.Sum() / _evaluations.Count;
-            _ratingSlider.value = evaluation;
+            _ratingSlider.value = value;
             
             StartCoroutine(MoveTo(standingTime, _startPosition));
         }
