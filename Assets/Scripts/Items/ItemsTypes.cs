@@ -3,8 +3,7 @@
     public enum ItemsTypes
     {
         Meat,
-        UpperBread,
-        LowerBread,
+        Bread,
         Cheese,
         Salad,
         Pallet,

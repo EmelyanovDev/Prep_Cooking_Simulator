@@ -65,8 +65,9 @@ namespace Client
             for (int i = 0; i < count; i++)
                 if (_orderComponents[i].ItemType == _orderRecipe[i])
                     _finalPercentage += 100 - Mathf.Abs(_orderComponents[i].CookingQuality - 100); //при пережарке её качество приготовления падает, а не растёт
-            _finalPercentage /= _orderRecipe.Length;
             
+            _finalPercentage /= _orderRecipe.Length;
+
             yield return new WaitForSeconds(evaluateDelay);
             
             _rating.RatingUpdate(_finalPercentage);

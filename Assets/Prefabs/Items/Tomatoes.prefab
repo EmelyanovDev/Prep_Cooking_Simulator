@@ -333,8 +333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1876725aa22b8af4ab132bb6d40ad09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 6
+  itemType: 5
   cookingQuality: 100
+  _childItems: []
 --- !u!1 &7050057914850576386
 GameObject:
   m_ObjectHideFlags: 0

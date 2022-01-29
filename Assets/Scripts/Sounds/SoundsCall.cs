@@ -6,6 +6,9 @@ namespace Sounds
     {
         [SerializeField] private AudioSource bellSound;
         [SerializeField] private AudioSource tapSound;
+        [SerializeField] private AudioSource fryingSound;
+
+        public AudioSource FryingSound => fryingSound;
         
         private static SoundsCall _instance;
 
@@ -22,5 +25,7 @@ namespace Sounds
         public void PlayBell() => bellSound.Play();
 
         public void PlayTap() => tapSound.Play();
+
+        public void PlayFrying() => fryingSound.Play();
     }
 }

@@ -258,8 +258,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb53ab568be23d44bc2c06e8bd229d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 5
+  itemType: 4
   cookingQuality: 100
+  _childItems: []
   dirtStain: {fileID: 3236862432403444070}
   dirtTransparent: 0
+  washingSpeed: 0
   coloringSpeed: 0.04

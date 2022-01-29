@@ -27,7 +27,7 @@ namespace Items.Childs
                 _soundsCall.PlayBell();
                 _soundPlayed = true;
             }
-            
+
             var color = _renderer.material.color;
             float coloringValue = preparationSpeed * coloringMultiplier * Time.deltaTime;
             color.r -= coloringValue;

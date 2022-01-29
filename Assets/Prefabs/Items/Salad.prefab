@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e3912d5e8b69444945507ef8b35591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 4
+  itemType: 3
   cookingQuality: 50
   _childItems: []
   preparationSpeed: 15

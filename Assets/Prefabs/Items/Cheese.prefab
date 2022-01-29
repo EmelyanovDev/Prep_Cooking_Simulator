@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ebbbc64b7091349b7b18fabe50bf18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 3
+  itemType: 2
   cookingQuality: 100
-  _coloringSpeed: 0.04
+  _childItems: []
+  coloringSpeed: 0.04

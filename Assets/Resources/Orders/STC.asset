@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e72aa6b9ff5ad114b9348824282049c4, type: 3}
-  m_Name: MCS
+  m_Name: STC
   m_EditorClassIdentifier: 
-  orderIcon: {fileID: 21300000, guid: ddedcb46f8f2bdb4d8c17c9349f8411a, type: 3}
-  orderRecipe: 040000000100000000000000020000000300000001000000
+  orderIcon: {fileID: 21300000, guid: 6e1ad195bad9fba4fab4d934a3e83897, type: 3}
+  orderRecipe: 040000000100000003000000050000000200000001000000
   orderDuration: 120
