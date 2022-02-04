@@ -23,7 +23,7 @@ namespace Items.Childs
         {
             if(CookingQuality <= 100)
                 cookingQuality += preparationSpeed * Time.deltaTime;
-            if (cookingQuality >= 100 && !_soundPlayed)
+            if (cookingQuality >= 100 && _soundPlayed == false)
             {
                 _soundsCall.PlayTap();
                 _soundPlayed = true;

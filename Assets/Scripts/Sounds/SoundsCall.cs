@@ -22,10 +22,19 @@ namespace Sounds
             }
         }
 
-        public void PlayBell() => bellSound.Play();
+        public void PlayBell()
+        {
+            bellSound.Play();
+        }
 
-        public void PlayTap() => tapSound.Play();
+        public void PlayTap()
+        {
+            tapSound.Play();
+        }
 
-        public void PlayFrying() => fryingSound.Play();
+        public void PlayFrying()
+        {
+            fryingSound.Play();
+        }
     }
 }

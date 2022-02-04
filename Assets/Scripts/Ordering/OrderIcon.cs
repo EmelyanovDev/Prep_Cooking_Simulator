@@ -8,7 +8,10 @@ namespace Ordering
         
         private Transform _selfTransform;
 
-        private void Awake() => _selfTransform = GetComponent<Transform>();
+        private void Awake()
+        {
+            _selfTransform = GetComponent<Transform>();
+        }
 
         private void Start()
         {

@@ -11,7 +11,6 @@ namespace Interactions
                 if(puttingPoint.CollectingItem is IWashing cookingItem)
                     cookingItem.Washing();
             }
-                
         }
     }
 }

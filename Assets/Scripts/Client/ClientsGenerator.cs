@@ -21,7 +21,10 @@ namespace Client
             Random.InitState(Random.Range(0,1000)); 
         }
 
-        private void Start() => StartCoroutine(TryCreateClients());
+        private void Start()
+        {
+            StartCoroutine(TryCreateClients());
+        }
 
         private IEnumerator TryCreateClients()
         {

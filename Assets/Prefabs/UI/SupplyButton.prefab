@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 4498364740086262387}
   - component: {fileID: 4498364740086262384}
   - component: {fileID: 4498364740086262385}
+  - component: {fileID: 5317611898115170157}
   m_Layer: 5
   m_Name: SupplyButton
   m_TagString: Untagged
@@ -345,10 +346,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ed9c6785574cbe8abac823a0279894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisSupply: {fileID: 0}
   supplyImage: {fileID: 4498364740442214859}
   priceText: {fileID: 4498364739947560509}
   productsCountText: {fileID: 4940790206304651641}
+--- !u!114 &5317611898115170157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4498364740086262391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf4a16f54d946e3a667656d9c149b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4498364740442214857
 GameObject:
   m_ObjectHideFlags: 0

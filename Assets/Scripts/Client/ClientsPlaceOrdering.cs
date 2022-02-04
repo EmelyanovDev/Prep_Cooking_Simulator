@@ -15,6 +15,9 @@ namespace Client
             _ordersGenerator = OrdersGenerator.Instance;
         }
 
-        public void CreateNewOrder() => _clientsEvaluation.SetNewOrder(_ordersGenerator.CreateNewOrder());
+        public void CreateNewOrder()
+        {
+            _clientsEvaluation.SetNewOrder(_ordersGenerator.CreateNewOrder());
+        }
     }
 }

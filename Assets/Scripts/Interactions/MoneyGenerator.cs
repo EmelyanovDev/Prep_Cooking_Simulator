@@ -24,7 +24,10 @@ namespace Interactions
             }
         }
 
-        private void Awake() => _cashRegister = CashRegister.Instance;
+        private void Awake()
+        {
+            _cashRegister = CashRegister.Instance;
+        }
 
         public IEnumerator CreateMoney(Vector3 startPosition, int count)
         {

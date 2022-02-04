@@ -20,9 +20,15 @@ namespace Client
             }
         }
 
-        private void Awake() => _clientsPlaces = FindObjectsOfType<ClientsPlace>();
+        private void Awake()
+        {
+            _clientsPlaces = FindObjectsOfType<ClientsPlace>();
+        }
 
-        public bool HasEmptyPlace() => _clientsPlaces.Any(clientsPlace => !clientsPlace.IsReserved);
+        public bool HasEmptyPlace()
+        {
+            return _clientsPlaces.Any(clientsPlace => clientsPlace.IsReserved == false);
+        }
 
         public ClientsPlace GetEmptyPlace()
         {

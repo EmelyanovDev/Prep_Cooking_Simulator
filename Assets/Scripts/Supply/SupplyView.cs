@@ -7,28 +7,21 @@ namespace Supply
     [RequireComponent(typeof(Button))]
     public class SupplyView : MonoBehaviour
     {
-        [SerializeField] private Supply thisSupply;
         [SerializeField] private Image supplyImage;
         [SerializeField] private TMP_Text priceText;
         [SerializeField] private TMP_Text productsCountText;
 
-        private Button _button;
-        private SuppliesHub _suppliesHub;
-
-        private void Awake()
+        private Supply _thisSupply;
+        
+        public Supply ThisSupply => _thisSupply;
+        
+        public void Init(Supply thisSupply)
         {
-            _button = GetComponent<Button>();
-            _suppliesHub = SuppliesHub.Instance;
+            _thisSupply = thisSupply;
             
-            supplyImage.sprite = thisSupply.ProductIcon;
-            priceText.text = thisSupply.SupplyPrice.ToString();
-            productsCountText.text = thisSupply.ProductsCount.ToString();
+            supplyImage.sprite = _thisSupply.ProductIcon;
+            priceText.text = _thisSupply.SupplyPrice.ToString();
+            productsCountText.text = _thisSupply.ProductsCount.ToString();
         }
-
-        private void OnEnable() => _button.onClick.AddListener(TryBuySupply);
-
-        private void OnDisable() => _button.onClick.RemoveListener(TryBuySupply);
-
-        private void TryBuySupply() => _suppliesHub.TryBuySupply(thisSupply);
     }
 }

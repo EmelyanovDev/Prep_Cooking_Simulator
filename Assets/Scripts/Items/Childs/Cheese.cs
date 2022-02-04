@@ -9,7 +9,10 @@ namespace Items.Childs
         
         private MeshRenderer _renderer;
 
-        private void Awake() => _renderer = GetComponent<MeshRenderer>();
+        private void Awake()
+        {
+            _renderer = GetComponent<MeshRenderer>();
+        }
 
         public void Frying()
         {

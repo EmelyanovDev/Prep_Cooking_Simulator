@@ -6,7 +6,7 @@ namespace Items
 {
     public abstract class CollectingItem : MonoBehaviour
     {
-        [SerializeField] private ItemsTypes itemType;
+        [SerializeField] private ItemType itemType;
         [SerializeField] protected float cookingQuality;
         
         private float _collectSpeed;
@@ -14,7 +14,7 @@ namespace Items
         private Transform _targetTransform;
         [SerializeField] private List<CollectingItem> _childItems = new List<CollectingItem>();
 
-        public ItemsTypes ItemType => itemType;
+        public ItemType ItemType => itemType;
         public float CookingQuality => cookingQuality;
         public List<CollectingItem> ChildItems => _childItems;
 

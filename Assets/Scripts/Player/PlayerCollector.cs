@@ -49,7 +49,10 @@ namespace Player
             }
         }
         
-        private void OnTriggerExit(Collider other) => _brakeCoroutines = true;
+        private void OnTriggerExit(Collider other)
+        {
+            _brakeCoroutines = true;
+        }
 
         private IEnumerator TryPickItem(Func<CollectingItem> func)
         {

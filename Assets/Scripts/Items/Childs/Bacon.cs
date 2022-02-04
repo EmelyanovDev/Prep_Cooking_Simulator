@@ -22,7 +22,7 @@ namespace Items.Childs
         public void Frying()
         {
             cookingQuality += preparationSpeed * Time.deltaTime;
-            if (cookingQuality >= 100 && !_soundPlayed)
+            if (cookingQuality >= 100 && _soundPlayed == false)
             {
                 _soundsCall.PlayBell();
                 _soundPlayed = true;

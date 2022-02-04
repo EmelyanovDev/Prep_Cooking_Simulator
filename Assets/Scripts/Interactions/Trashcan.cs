@@ -9,7 +9,10 @@ namespace Interactions
         
         private Transform _trashPoint;
 
-        private void Awake() => _trashPoint = transform.parent;
+        private void Awake()
+        {
+            _trashPoint = transform.parent;
+        }
 
         public Vector3 GetTrashPoint(CollectingItem collectingItem)
         {

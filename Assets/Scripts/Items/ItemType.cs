@@ -1,6 +1,6 @@
 ﻿namespace Items
 {
-    public enum ItemsTypes
+    public enum ItemType
     {
         Meat,
         Bread,

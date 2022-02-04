@@ -13,7 +13,10 @@ namespace Interactions.Dirt
         private bool _tryingClean;
         private DirtPoint _selfPoint;
 
-        public void Init(DirtPoint dirtPoint) => _selfPoint = dirtPoint;
+        public void Init(DirtPoint dirtPoint)
+        {
+            _selfPoint = dirtPoint;
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -24,7 +27,10 @@ namespace Interactions.Dirt
             StartCoroutine(TryCleanDirt());
         }
 
-        private void OnTriggerExit(Collider other) => _breakCoroutine = true;
+        private void OnTriggerExit(Collider other)
+        {
+            _breakCoroutine = true;
+        }
 
         private IEnumerator TryCleanDirt()
         {

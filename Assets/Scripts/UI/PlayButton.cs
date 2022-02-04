@@ -14,9 +14,21 @@ namespace UI
         private void Awake()
         {
             _thisButton = GetComponent<Button>();
-            _thisButton.onClick.AddListener(LoadLevel);
         }
 
-        private void LoadLevel() => SceneManager.LoadScene(sceneIndex);
+        private void OnEnable()
+        {
+            _thisButton.onClick.AddListener(OnButtonClick);
+        }
+
+        private void OnDisable()
+        {
+            _thisButton.onClick.RemoveListener(OnButtonClick);
+        }
+
+        private void OnButtonClick()
+        {
+            SceneManager.LoadScene(sceneIndex);
+        }
     }
 }

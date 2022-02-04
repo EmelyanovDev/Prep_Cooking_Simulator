@@ -9,11 +9,15 @@ public class SmoothCamera : MonoBehaviour
     private Transform _selfTransform;
     private Vector3 _startPosition;
 
-    private void Awake() => _selfTransform = GetComponent<Transform>();
-    
+    private void Awake()
+    {
+        _selfTransform = GetComponent<Transform>();
+    }
+
     private void Start()
     {
         if (target == null) throw new NullReferenceException();
+        
         _startPosition = _selfTransform.position - target.position;
     }
 

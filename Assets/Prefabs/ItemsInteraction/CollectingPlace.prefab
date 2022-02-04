@@ -59,6 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectingPoint: {fileID: 6993323650941196404}
   itemsStep: 0.11
+  _containedItems: []
 --- !u!1 &4316807550100956292
 GameObject:
   m_ObjectHideFlags: 0

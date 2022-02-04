@@ -6,7 +6,10 @@ namespace Client
     {
         private ClientsPool _clientsPool;
 
-        private void Awake() => _clientsPool = ClientsPool.Instance;
+        private void Awake()
+        {
+            _clientsPool = ClientsPool.Instance;
+        }
 
         private void OnTriggerEnter(Collider other)
         {

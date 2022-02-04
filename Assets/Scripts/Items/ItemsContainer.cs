@@ -15,7 +15,10 @@ namespace Items
 
         public CollectingItem CollectingItem => collectingItem;
 
-        private void Awake() => _selfTransform = GetComponent<Transform>();
+        private void Awake()
+        {
+            _selfTransform = GetComponent<Transform>();
+        }
 
         private void Start()
         {
@@ -23,7 +26,7 @@ namespace Items
                 CreateItem();
         }
 
-        public void DeliveryItems(int itemsCount)
+        public void DeliverySelfItems(int itemsCount)
         {
             for (int i = 0; i < itemsCount; i++)
                 CreateItem();

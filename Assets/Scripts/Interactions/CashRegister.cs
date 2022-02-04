@@ -1,6 +1,7 @@
 ﻿using Items;
 using Items.Childs;
 using Player;
+using UI;
 using UnityEngine;
 
 namespace Interactions
@@ -10,7 +11,7 @@ namespace Interactions
         [SerializeField] private float destroyDelay;
 
         private Transform _selfTransform;
-        private PlayerMoney _playerMoney;
+        private Money _money;
 
         private static CashRegister _instance;
 
@@ -27,7 +28,7 @@ namespace Interactions
         private void Awake()
         {
             _selfTransform = GetComponent<Transform>();
-            _playerMoney = PlayerMoney.Instance;
+            _money = Money.Instance;
         }
 
         public Vector3 PutBill(CollectingItem moneyBill)
@@ -35,7 +36,7 @@ namespace Interactions
             Destroy(moneyBill.gameObject, destroyDelay);
             
             if(moneyBill is MoneyBill bill)
-                _playerMoney.ChangeMoneyCount(bill.BillCost);
+                _money.ChangeMoneyCount(bill.BillCost);
             
             return _selfTransform.position;
         }

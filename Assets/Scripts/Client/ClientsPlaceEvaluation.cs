@@ -22,7 +22,7 @@ namespace Client
         private OrdersDisplay _ordersDisplay;
         private Rating _rating;
         private Order _thisOrder;
-        private ItemsTypes[] _orderRecipe;
+        private ItemType[] _orderRecipe;
         [SerializeField] private List<CollectingItem> _orderComponents;
         private Transform _placeTrasform;
         private float _finalPercentage;
@@ -79,7 +79,7 @@ namespace Client
 
         private void CreatePallet()
         {
-            int palletsCount = _orderComponents.Count(orderComponent => orderComponent.ItemType == ItemsTypes.Pallet);
+            int palletsCount = _orderComponents.Count(orderComponent => orderComponent.ItemType == ItemType.Pallet);
             _containersHub.SupplyItems(dirtyPallet, palletsCount);
         }
 

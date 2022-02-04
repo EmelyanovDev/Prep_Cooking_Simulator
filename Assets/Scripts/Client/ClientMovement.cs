@@ -21,6 +21,7 @@ namespace Client
         public void Activating()
         {
             _clientsPlace = _clientsPlacesHub.GetEmptyPlace();
+            
             if(_clientsPlace != null)
                 _navMeshAgent.SetDestination(_clientsPlace.TakePlace(this).position);
         }
@@ -39,7 +40,7 @@ namespace Client
         
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out ClientsPlace clientsPlace) && clientsPlace == _clientsPlace && !clientsPlace.RecipeIsCreated())
+            if (other.TryGetComponent(out ClientsPlace clientsPlace) && clientsPlace == _clientsPlace && clientsPlace.RecipeIsCreated() == false)
                 clientsPlace.CreateNewOrder();
         }
     }

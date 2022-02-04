@@ -129,10 +129,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectingItem: {fileID: 9216925401684294555, guid: edae7446e6091884caca3e11fd1ef0d2, type: 3}
-  startItemsCount: 3
   itemsStep: 0.15
   itemsSpeed: 3
-  canPutItem: 1
+  startItemsCount: 3
 --- !u!65 &2620237375650148893
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -163,7 +162,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &3390065763888522507
 Transform:

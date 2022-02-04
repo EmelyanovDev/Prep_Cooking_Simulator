@@ -19,13 +19,16 @@ namespace Items
             }
         }
 
-        private void Awake() => _itemsContainers = FindObjectsOfType<ItemsContainer>();
+        private void Awake()
+        {
+            _itemsContainers = FindObjectsOfType<ItemsContainer>();
+        }
 
         public void SupplyItems(CollectingItem suppliedItem, int itemsCount)
         {
             var container = FindContainerByType(suppliedItem);
 
-            container.DeliveryItems(itemsCount);
+            container.DeliverySelfItems(itemsCount);
         }
 
         private ItemsContainer FindContainerByType(CollectingItem findingItem) =>

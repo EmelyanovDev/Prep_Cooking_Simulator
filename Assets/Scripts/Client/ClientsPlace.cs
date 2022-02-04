@@ -25,17 +25,35 @@ namespace Client
             _clientsOrdering = GetComponent<ClientsPlaceOrdering>();
         }
         
-        private void OnEnable() => _clientsEvaluation.FreeUpSpace += FreeUpPlace;
+        private void OnEnable()
+        {
+            _clientsEvaluation.FreeUpSpace += FreeUpPlace;
+        }
 
-        private void OnDisable() => _clientsEvaluation.FreeUpSpace -= FreeUpPlace;
+        private void OnDisable()
+        {
+            _clientsEvaluation.FreeUpSpace -= FreeUpPlace;
+        }
 
-        public bool RecipeIsCreated() => _clientsEvaluation.RecipeIsCreated;
+        public bool RecipeIsCreated()
+        {
+            return _clientsEvaluation.RecipeIsCreated;
+        }
 
-        public void CreateNewOrder() => _clientsOrdering.CreateNewOrder();
+        public void CreateNewOrder()
+        {
+            _clientsOrdering.CreateNewOrder();
+        }
 
-        public void SetReserved(bool condition) => _isReserved = condition; 
-        
-        public bool CanPutItem() => _placedItem == null && _clientsEvaluation.RecipeIsCreated;
+        public void SetReserved(bool condition)
+        {
+            _isReserved = condition;
+        }
+
+        public bool CanPutItem()
+        {
+            return _placedItem == null && _clientsEvaluation.RecipeIsCreated;
+        }
 
         public Vector3 PutItem(CollectingItem item)
         {
