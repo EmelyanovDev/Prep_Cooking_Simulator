@@ -29,7 +29,7 @@ namespace Interactions
 
         public bool HasContainedItem() => _containedItems.Count > 0;
 
-        public CollectingItem PickItem()
+        public CollectingItem GetItem()
         {
             CollectingItem returningItem = _containedItems[0];
             _containedItems = new List<CollectingItem>();

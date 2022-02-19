@@ -3,14 +3,12 @@ using UnityEngine;
 
 namespace UI
 {
-    [RequireComponent(typeof(Stars))]
-    
-    public class Stars : MonoBehaviour
+    public class  Stars : MonoBehaviour
     {
         [SerializeField] private string startKey = "StarsCount";
         [SerializeField] private int starsCount;
         
-        private TMP_Text _starsText;
+        [SerializeField] private TMP_Text _starsText;
 
         public int StarsCount => starsCount;
     
@@ -27,8 +25,6 @@ namespace UI
 
         private void Awake()
         {
-            _starsText = GetComponent<TMP_Text>();
-            
             if (PlayerPrefs.HasKey(startKey))
             {
                 starsCount = PlayerPrefs.GetInt(startKey);

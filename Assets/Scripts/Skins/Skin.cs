@@ -15,6 +15,6 @@ namespace Skins
         public Sprite SkinIcon => skinIcon;
         public SkinType SkinType => skinType;
         public int SkinPrice => skinPrice;
-        public int SkinId => skinID;
+        public int SkinID => skinID;
     }
 }

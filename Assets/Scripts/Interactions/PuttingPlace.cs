@@ -8,7 +8,10 @@ namespace Interactions
     {
         protected PuttingPoint[] PuttingPoints;
         
-        private void Awake() => PuttingPoints = transform.parent.GetComponentsInChildren<PuttingPoint>();
+        private void Awake()
+        {
+            PuttingPoints = transform.parent.GetComponentsInChildren<PuttingPoint>();
+        }
 
         public bool CanCollectItem(bool pointEmptyCondition)
         {
@@ -28,7 +31,7 @@ namespace Interactions
             return Vector3.zero;
         }
 
-        public CollectingItem TakeItem()
+        public CollectingItem GetItem()
         {
             foreach (var puttingPoint in PuttingPoints)
             {

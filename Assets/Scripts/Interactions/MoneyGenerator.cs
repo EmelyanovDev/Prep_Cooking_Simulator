@@ -11,7 +11,7 @@ namespace Interactions
         [SerializeField] private float createDelay;
         
         private CashRegister _cashRegister;
-        
+
         private static MoneyGenerator _instance;
 
         public static MoneyGenerator Instance

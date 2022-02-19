@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30757981380519f4f9b211ee5cce162e, type: 3}
+  m_Name: Face3
+  m_EditorClassIdentifier: 
+  skinModel: {fileID: 3910695354126004291, guid: 2e9b966942a54154fbae743c9f7a1e3a, type: 3}
+  skinIcon: {fileID: 0}
+  skinType: 1
+  skinPrice: 10
+  skinID: 4

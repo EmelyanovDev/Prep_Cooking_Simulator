@@ -10,8 +10,10 @@ namespace Player
         [SerializeField] private Joystick joystick;
         [SerializeField] private Transform motionIndicator;
         [SerializeField] private Vector3 rotation;
+        
+        private float turnSmoothVelocity;
 
-        private Quaternion _rotateQuaternion;
+        private Quaternion _rotateMultiplier;
         private Rigidbody _rigidbody;
         private Transform _selfTransform;
         
@@ -19,15 +21,18 @@ namespace Player
         {
             _rigidbody = GetComponent<Rigidbody>();
             _selfTransform = GetComponent<Transform>();
-            _rotateQuaternion = Quaternion.Euler(rotation);
+            _rotateMultiplier = Quaternion.Euler(rotation);
         }
 
         private void FixedUpdate()
         {
             Vector3 moving = joystick.Direction * moveSpeed * Time.deltaTime;
-            _rigidbody.velocity = _rotateQuaternion * moving;
+            _rigidbody.velocity = _rotateMultiplier * moving;
 
-            Vector3 indicatorPosition = _selfTransform.position + _rotateQuaternion * joystick.Direction * motionIndicatorSpeed;
+            if(joystick.Direction != Vector3.zero)
+                _selfTransform.forward = _rotateMultiplier * -joystick.Direction;
+
+            Vector3 indicatorPosition = _selfTransform.position + _rotateMultiplier * joystick.Direction * motionIndicatorSpeed;
             indicatorPosition.y = motionIndicator.position.y;
             motionIndicator.position = indicatorPosition;
         }

@@ -42,7 +42,7 @@ namespace Items
 
         public bool CanPickItem() => _containedItems.Count > 0;
         
-        public CollectingItem TakeItem()
+        public CollectingItem GetItem()
         {
             var item = _containedItems[_containedItems.Count - 1];
             _containedItems.Remove(item);

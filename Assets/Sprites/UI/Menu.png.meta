@@ -17,6 +17,15 @@ TextureImporter:
   - first:
       213: -894268473198475317
     second: Menu_4
+  - first:
+      213: 7585431397144717044
+    second: Menu_5
+  - first:
+      213: -2067535388042838268
+    second: Menu_6
+  - first:
+      213: 1241894451957635108
+    second: Menu_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -47,7 +56,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -133,13 +142,13 @@ TextureImporter:
       name: Menu_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 917
-        width: 429
-        height: 125
+        x: 169
+        y: 1252
+        width: 757
+        height: 206
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 38, y: 31, z: 36, w: 36}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -154,13 +163,13 @@ TextureImporter:
       name: Menu_1
       rect:
         serializedVersion: 2
-        x: 431
-        y: 911
-        width: 142
-        height: 131
+        x: 1002
+        y: 1298
+        width: 91
+        height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 32, y: 35, z: 33, w: 32}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -175,13 +184,13 @@ TextureImporter:
       name: Menu_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 723
-        width: 429
-        height: 136
+        x: 170
+        y: 1017
+        width: 206
+        height: 208
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 34, y: 34, z: 30, w: 32}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -196,13 +205,13 @@ TextureImporter:
       name: Menu_3
       rect:
         serializedVersion: 2
-        x: 433
-        y: 744
-        width: 142
-        height: 140
+        x: 410
+        y: 1017
+        width: 206
+        height: 208
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 32, y: 31, z: 28, w: 31}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -217,12 +226,12 @@ TextureImporter:
       name: Menu_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 539
-        width: 429
-        height: 131
+        x: 953
+        y: 1162
+        width: 158
+        height: 101
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,6 +239,69 @@ TextureImporter:
       bones: []
       spriteID: bc78c29cf8be693f0800000000000000
       internalID: -894268473198475317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Menu_5
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 976
+        width: 135
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6e7e69aadd44960800000000000000
+      internalID: 7585431397144717044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Menu_6
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 786
+        width: 144
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f3823d483ae43e0800000000000000
+      internalID: -2067535388042838268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Menu_7
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 635
+        width: 149
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42896799c681c3110800000000000000
+      internalID: 1241894451957635108
       vertices: []
       indices: 
       edges: []

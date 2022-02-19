@@ -28,11 +28,11 @@ namespace Player
             if (_pickedItem == null)
             {
                 if (other.TryGetComponent(out ItemsContainer itemsContainer) && itemsContainer.CanPickItem())
-                    StartCoroutine(TryPickItem(itemsContainer.TakeItem));
+                    StartCoroutine(TryPickItem(itemsContainer.GetItem));
                 else if (other.TryGetComponent(out PuttingPlace puttingPlace) && puttingPlace.CanCollectItem(false))
-                    StartCoroutine(TryPickItem(puttingPlace.TakeItem));
+                    StartCoroutine(TryPickItem(puttingPlace.GetItem));
                 else if (other.TryGetComponent(out CollectingPlace collectingPlace) && collectingPlace.HasContainedItem())
-                    StartCoroutine(TryPickItem(collectingPlace.PickItem));
+                    StartCoroutine(TryPickItem(collectingPlace.GetItem));
             }
             else
             {

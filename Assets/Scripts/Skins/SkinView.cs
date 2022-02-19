@@ -12,6 +12,8 @@ namespace Skins
 
         private Skin _thisSkin;
 
+        public Skin ThisSkin => _thisSkin;
+
         public void Init(Skin thisSkin)
         {
             _thisSkin = thisSkin;
