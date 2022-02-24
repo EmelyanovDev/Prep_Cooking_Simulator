@@ -8,7 +8,7 @@ namespace Player
     {
         [SerializeField] private Joystick joystick;
         private Animator _animator;
-        private readonly int _isWalk = Animator.StringToHash("IsWalk");
+        private readonly int _speed = Animator.StringToHash("Speed");
 
         private void Awake()
         {
@@ -17,7 +17,7 @@ namespace Player
 
         private void FixedUpdate()
         {
-            _animator.SetBool(_isWalk, joystick.Direction != Vector3.zero);
+            _animator.SetFloat(_speed, Mathf.Abs(joystick.Direction.magnitude));
         }
     }
 }
