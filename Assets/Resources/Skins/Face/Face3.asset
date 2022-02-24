@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30757981380519f4f9b211ee5cce162e, type: 3}
-  m_Name: Face4
+  m_Name: Face3
   m_EditorClassIdentifier: 
-  skinModel: {fileID: 8903611496690371601, guid: 88f05c57e6fe6684aa3e6994550c167e, type: 3}
-  skinIcon: {fileID: 0}
+  skinModel: {fileID: 3910695354126004291, guid: 2e9b966942a54154fbae743c9f7a1e3a, type: 3}
+  skinIcon: {fileID: 184950751378207249, guid: ba677c8d965659549a9e3ec21ee85fcb, type: 3}
   skinType: 1
   skinPrice: 10
-  skinID: 5
+  skinID: 4

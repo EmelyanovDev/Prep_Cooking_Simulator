@@ -6,7 +6,7 @@ namespace Supply
     [RequireComponent(typeof(Button))]
     public class SuppliesListButton : MonoBehaviour
     {
-        [SerializeField] private GameObject deliveryMenu;
+        [SerializeField] private GameObject suppliesMenu;
 
         private Button _button;
 
@@ -27,7 +27,7 @@ namespace Supply
 
         private void MenuSwitching()
         {
-            deliveryMenu.SetActive(!deliveryMenu.activeSelf);
+            suppliesMenu.SetActive(!suppliesMenu.activeSelf);
         }
     }
 }

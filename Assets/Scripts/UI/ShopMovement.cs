@@ -7,7 +7,7 @@ namespace UI
     {
         [SerializeField] private Vector2 endPosition;
         [SerializeField] private float moveSpeed;
-        [SerializeField] private Button _shopButton;
+        [SerializeField] private Button shopButton;
         
         private Vector2 _startPosition;
         private Vector2 _targetPosition;
@@ -32,12 +32,12 @@ namespace UI
 
         private void OnEnable()
         {
-            _shopButton.onClick.AddListener(SwitchTarget);
+            shopButton.onClick.AddListener(SwitchTarget);
         }
         
         private void OnDisable()
         {
-            _shopButton.onClick.RemoveListener(SwitchTarget);
+            shopButton.onClick.RemoveListener(SwitchTarget);
         }
 
         private void SwitchTarget()

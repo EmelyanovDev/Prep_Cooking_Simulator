@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30757981380519f4f9b211ee5cce162e, type: 3}
-  m_Name: Face1
+  m_Name: CookingHat
   m_EditorClassIdentifier: 
-  skinModel: {fileID: 6361786186003760487, guid: 67a85b733f7af7a48a670567f662d453, type: 3}
-  skinIcon: {fileID: 0}
-  skinType: 1
+  skinModel: {fileID: 919132149155446097, guid: b0219a88bae37bc4f9ab8fb8fc696c91, type: 3}
+  skinIcon: {fileID: 5543941588292853863, guid: ba677c8d965659549a9e3ec21ee85fcb, type: 3}
+  skinType: 0
   skinPrice: 10
-  skinID: 2
+  skinID: 1

@@ -6,7 +6,6 @@ namespace Skins
     {
         private Transform _selfTransform;
         private GameObject _skinObject;
-        private int _previousID;
 
         private void Awake()
         {
