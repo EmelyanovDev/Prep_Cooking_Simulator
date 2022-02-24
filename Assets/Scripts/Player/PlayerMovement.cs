@@ -3,6 +3,7 @@
 namespace Player
 {
     [RequireComponent(typeof(Rigidbody))]
+
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 100f;
@@ -16,11 +17,12 @@ namespace Player
         private Quaternion _rotateMultiplier;
         private Rigidbody _rigidbody;
         private Transform _selfTransform;
-        
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _selfTransform = GetComponent<Transform>();
+
             _rotateMultiplier = Quaternion.Euler(rotation);
         }
 
@@ -29,8 +31,11 @@ namespace Player
             Vector3 moving = joystick.Direction * moveSpeed * Time.deltaTime;
             _rigidbody.velocity = _rotateMultiplier * moving;
 
-            if(joystick.Direction != Vector3.zero)
-                _selfTransform.forward = _rotateMultiplier * -joystick.Direction;
+            if (joystick.Direction != Vector3.zero)
+            {
+                _selfTransform.forward = _rotateMultiplier * joystick.Direction;
+                print(_selfTransform.forward);
+            }
 
             Vector3 indicatorPosition = _selfTransform.position + _rotateMultiplier * joystick.Direction * motionIndicatorSpeed;
             indicatorPosition.y = motionIndicator.position.y;
