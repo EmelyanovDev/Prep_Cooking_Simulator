@@ -5,7 +5,7 @@ namespace Client
 {
     public class ClientsPool : MonoBehaviour
     {
-        [SerializeField] private ClientMovement clientTemplate;
+        [SerializeField] private ClientMovement[] clientTemplates;
         [SerializeField] private int startClientsCount;
 
         private List<ClientMovement> _unActivatedClients = new List<ClientMovement>();
@@ -30,7 +30,7 @@ namespace Client
 
         private void CreateClient(Vector3 position, Quaternion rotation)
         {
-            var client = Instantiate(clientTemplate, position, rotation);
+            var client = Instantiate(clientTemplates[Random.Range(0, clientTemplates.Length)], position, rotation);
             client.gameObject.SetActive(false);
             _unActivatedClients.Add(client);
         }

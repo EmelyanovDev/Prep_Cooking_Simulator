@@ -34,7 +34,6 @@ namespace Player
             if (joystick.Direction != Vector3.zero)
             {
                 _selfTransform.forward = _rotateMultiplier * joystick.Direction;
-                print(_selfTransform.forward);
             }
 
             Vector3 indicatorPosition = _selfTransform.position + _rotateMultiplier * joystick.Direction * motionIndicatorSpeed;
