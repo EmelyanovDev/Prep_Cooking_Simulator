@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a377c14c8bcdc8b4f9aaeb3c9aa1e532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectingItem: {fileID: 9216925401684294555, guid: e3715d34b18aaf84d9e2c0a71f25d5eb, type: 3}
+  collectingItem: {fileID: 8014313724409347869, guid: 1927c8e9e65b9f44b877c9879123e36c, type: 3}
   itemsStep: 0.15
   itemsSpeed: 3
   startItemsCount: 3

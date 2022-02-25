@@ -340,7 +340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f35cbe147568549a81845a1e5514ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemType: 0
-  _cookingQuality: 0
-  _preparationSpeed: 10
-  _coloringMultiper: 0.004
+  itemType: 0
+  cookingQuality: 0
+  _childItems: []
+  preparationSpeed: 10
+  coloringMultiplier: 0.0035
