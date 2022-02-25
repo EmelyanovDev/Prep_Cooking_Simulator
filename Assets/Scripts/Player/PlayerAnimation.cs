@@ -8,6 +8,7 @@ namespace Player
     {
         [SerializeField] private Joystick joystick;
         private Animator _animator;
+        
         private readonly int _speed = Animator.StringToHash("Speed");
 
         private void Awake()
