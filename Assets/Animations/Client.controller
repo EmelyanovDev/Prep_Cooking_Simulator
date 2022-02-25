@@ -168,11 +168,7 @@ AnimatorStateMachine:
     m_Position: {x: 30, y: 340, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102986507640805038}
-<<<<<<< HEAD:Assets/Animations/Client.controller
     m_Position: {x: 480, y: 330, z: 0}
-=======
-    m_Position: {x: 290, y: 350, z: 0}
->>>>>>> parent of dd61c95 (Try to made blend tree):Assets/Animations/Character.controller
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
