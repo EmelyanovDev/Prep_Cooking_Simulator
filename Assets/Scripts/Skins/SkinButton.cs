@@ -32,7 +32,7 @@ namespace Skins
 
         private void OnButtonClick()
         {
-            _skinsHub.OnSkinClick(_skinView.ThisSkin);
+            _skinsHub.TrySetSkin(_skinView.ThisSkin);
         }
     }
 }

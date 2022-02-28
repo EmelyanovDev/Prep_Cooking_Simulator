@@ -28,7 +28,7 @@ namespace Skins
             _playerSkin = PlayerSkin.Instance;
         }
 
-        public void OnSkinClick(Skin skin)
+        public void TrySetSkin(Skin skin)
         {
             var saveSystem = new JsonSaveSystem();
 

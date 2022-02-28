@@ -11,6 +11,7 @@ namespace UI
         
         private Vector2 _startPosition;
         private Vector2 _targetPosition;
+        
         private RectTransform _selfTransform;
         
         private void Awake()

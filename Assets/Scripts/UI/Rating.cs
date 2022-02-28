@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +10,7 @@ namespace UI
         [SerializeField] private Vector2 endPosition;
         [SerializeField] private float movingSpeed;
         [SerializeField] private float standingTime;
-
-        //private Stars _stars;
+        
         private Slider _ratingSlider;
         private RectTransform _selfTransform;
         private Vector2 _startPosition;
@@ -32,10 +29,9 @@ namespace UI
 
         private void Awake()
         {
-            //_stars = Stars.Instance;
-            
             _ratingSlider = GetComponent<Slider>();
             _selfTransform = GetComponent<RectTransform>();
+            
             _startPosition = _selfTransform.anchoredPosition;
         }
 
@@ -44,9 +40,7 @@ namespace UI
             StartCoroutine(MoveTo(0, endPosition));
             
             _ratingSlider.value = value;
-            //var startCount = Mathf.RoundToInt(value / 20);
-            //_stars.ChangeStarsCount(startCount);
-            
+
             StartCoroutine(MoveTo(standingTime, _startPosition));
         }
 

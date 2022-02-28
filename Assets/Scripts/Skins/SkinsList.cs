@@ -10,18 +10,6 @@ namespace Skins
         private Skin[] _skins;
         private const string SkinsPath = "Skins";
 
-        private static SkinsList _instance;
-
-        public static SkinsList Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = FindObjectOfType<SkinsList>();
-                return _instance;
-            }
-        }
-
         private void Awake()
         {
             _skins = Resources.LoadAll<Skin>(SkinsPath);

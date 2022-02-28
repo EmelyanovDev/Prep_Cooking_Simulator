@@ -28,6 +28,11 @@ namespace Items.Childs
                 _soundPlayed = true;
             }
 
+            if (_soundsCall.FryingSound.isPlaying == false)
+            {
+                _soundsCall.PlayFrying();
+            }
+
             var color = _renderer.material.color;
             float coloringValue = preparationSpeed * coloringMultiplier * Time.deltaTime;
             color.r -= coloringValue;

@@ -7,14 +7,14 @@ namespace Supply
         [SerializeField] private SupplyView supplyTemplate;
         [SerializeField] private Transform suppliesContainer;
         
-        private Supply[] supplies;
+        private Supply[] _supplies;
         private const string SuppliesPath = "Supplies";
 
         private void Awake()
         {
-            supplies = Resources.LoadAll<Supply>(SuppliesPath);
+            _supplies = Resources.LoadAll<Supply>(SuppliesPath);
             
-            foreach (var supply in supplies)
+            foreach (var supply in _supplies)
                 CreateSupply(supply);
         }
 

@@ -7,7 +7,7 @@ namespace Skins
     
     public class SkinsListButton : MonoBehaviour
     {
-        [SerializeField] private GameObject buttons;
+        [SerializeField] private GameObject menu;
         [SerializeField] private GameObject skinsList;
         
         private Button _thisButton;
@@ -30,7 +30,7 @@ namespace Skins
         private void ActiveSwitching()
         {
             skinsList.SetActive(!skinsList.activeSelf);
-            buttons.SetActive(!buttons.activeSelf);
+            menu.SetActive(!menu.activeSelf);
         }
     }
 }
