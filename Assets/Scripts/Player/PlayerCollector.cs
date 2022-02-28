@@ -31,7 +31,7 @@ namespace Player
                     StartCoroutine(TryPickItem(itemsContainer.GetItem));
                 else if (other.TryGetComponent(out PuttingPlace puttingPlace) && puttingPlace.CanCollectItem(false))
                     StartCoroutine(TryPickItem(puttingPlace.GetItem));
-                else if (other.TryGetComponent(out CollectingPlace collectingPlace) && collectingPlace.HasContainedItem())
+                else if (other.TryGetComponent(out KitchenTable collectingPlace) && collectingPlace.HasContainedItem())
                     StartCoroutine(TryPickItem(collectingPlace.GetItem));
             }
             else
@@ -40,7 +40,7 @@ namespace Player
                     StartCoroutine(TryPutItem(puttingPlace.GetItemPoint));
                 else if (other.TryGetComponent(out Trashcan trashcan))
                     StartCoroutine(TryPutItem(trashcan.GetTrashPoint));
-                else if (other.TryGetComponent(out CollectingPlace collectingPlace))
+                else if (other.TryGetComponent(out KitchenTable collectingPlace))
                     StartCoroutine(TryPutItem(collectingPlace.PutItem));
                 else if (other.TryGetComponent(out ClientsPlace clientsPlace) && clientsPlace.CanPutItem())
                     StartCoroutine(TryPutItem(clientsPlace.PutItem));

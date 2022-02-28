@@ -8,10 +8,11 @@ namespace Supply
         [SerializeField] private Transform suppliesContainer;
         
         private Supply[] supplies;
+        private const string SuppliesPath = "Supplies";
 
         private void Awake()
         {
-            supplies = Resources.LoadAll<Supply>("Supplies");
+            supplies = Resources.LoadAll<Supply>(SuppliesPath);
             
             foreach (var supply in supplies)
                 CreateSupply(supply);

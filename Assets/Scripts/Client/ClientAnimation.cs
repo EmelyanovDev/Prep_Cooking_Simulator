@@ -23,10 +23,12 @@ namespace Client
 
         private void FixedUpdate()
         {
-            _speed = Mathf.Abs(Vector3.Distance(_previousPosition, _selfTransform.position));
+            var position = _selfTransform.position;
+            
+            _speed = Mathf.Abs(Vector3.Distance(_previousPosition, position));
             _animator.SetBool(_isWalk, _speed != 0);
             
-            _previousPosition = _selfTransform.position;
+            _previousPosition = position;
         }
     }
 }

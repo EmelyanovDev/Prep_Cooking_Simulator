@@ -1,4 +1,5 @@
 ﻿using Player;
+using SaveSystem;
 using UI;
 using UnityEngine;
 
@@ -6,9 +7,9 @@ namespace Skins
 {
     public class SkinsHub : MonoBehaviour
     {
-        private Stars _stars;
         private PlayerSkin _playerSkin;
-        
+        private Money _money;
+
         private static SkinsHub _instance;
 
         public static SkinsHub Instance
@@ -23,26 +24,47 @@ namespace Skins
 
         private void Awake()
         {
-            _stars = Stars.Instance;
+            _money = Money.Instance;
             _playerSkin = PlayerSkin.Instance;
         }
 
         public void OnSkinClick(Skin skin)
         {
-            if (PlayerPrefs.HasKey(skin.SkinID.ToString()))
+            var saveSystem = new JsonSaveSystem();
+
+            if (saveSystem.Load().Skins.Contains(skin))
             {
-                _playerSkin.SetSkin(skin);
+                _playerSkin.PutOnSkin(skin);
+            }
+            else if (_money.TryReduceMoney(skin.SkinPrice))
+            {
+                BuySkin(skin, saveSystem);
+                
+                _playerSkin.PutOnSkin(skin);
             }
             else
             {
-                if (_stars.StarsCount < skin.SkinPrice)
-                    return;
-                
-                _stars.ChangeStarsCount(-skin.SkinPrice);
-                PlayerPrefs.SetInt(skin.SkinID.ToString(), 1);
-                
-                _playerSkin.SetSkin(skin);
+                print("Not enough money & skin not bought");
             }
+        }
+
+        private void BuySkin(Skin skin, JsonSaveSystem saveSystem)
+        {
+            var data = saveSystem.Load();
+            data.Skins.Add(skin);
+            switch (skin.SkinType)
+            {
+                case SkinType.Head:
+                    data.HeadSkin = skin;
+                    break;
+                case SkinType.Face:
+                    data.FaceSkin = skin;
+                    break;
+                case SkinType.Body:
+                    data.BodySkin = skin;
+                    break;
+            }
+            saveSystem.Save(data);
         }
     }
 }

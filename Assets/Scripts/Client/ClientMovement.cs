@@ -4,6 +4,7 @@ using UnityEngine.AI;
 namespace Client
 {
     [RequireComponent(typeof(NavMeshAgent))]
+    
     public class ClientMovement : MonoBehaviour
     {
         private ClientsPlace _clientsPlace;
@@ -15,6 +16,7 @@ namespace Client
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _selfTransform = GetComponent<Transform>();
+            
             _clientsPlacesHub = ClientsPlacesHub.Instance;
         }
         

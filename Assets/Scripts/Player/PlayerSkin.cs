@@ -10,12 +10,6 @@ namespace Player
         [SerializeField] private DressingPlace face;
         [SerializeField] private DressingPlace body;
 
-        [SerializeField] private string headKey;
-        [SerializeField] private string faceKey;
-        [SerializeField] private string bodyKey;
-
-        private SkinsList _skinsList;
-
         private static PlayerSkin _instance;
 
         public static PlayerSkin Instance
@@ -27,50 +21,26 @@ namespace Player
                 return _instance;
             }
         }
-
-        private void Awake()
-        {
-            _skinsList = SkinsList.Instance;
-        }
-
-        private void Start()
-        {
-            if (PlayerPrefs.HasKey(headKey))
-            {
-                SetSkin(_skinsList.GetSkinByID(PlayerPrefs.GetInt(headKey)));
-            }
-
-            if (PlayerPrefs.HasKey(faceKey))
-            {
-                SetSkin(_skinsList.GetSkinByID(PlayerPrefs.GetInt(faceKey)));
-            }
-
-            if (PlayerPrefs.HasKey(bodyKey))
-            {
-                SetSkin(_skinsList.GetSkinByID(PlayerPrefs.GetInt(bodyKey)));
-            }
-        }
-
-        public void SetSkin(Skin skin)
+        
+        public void PutOnSkin(Skin skin)
         {
             switch (skin.SkinType)
             {
                 case SkinType.Head:
-                    SaveSkin(head, skin, headKey);
+                    SetSkin(head, skin);
                     break;
                 case SkinType.Face:
-                    SaveSkin(face, skin, faceKey);
+                    SetSkin(face, skin);
                     break;
                 case SkinType.Body:
-                    SaveSkin(body, skin, bodyKey);
+                    SetSkin(body, skin);
                     break;
             }
         }
-
-        private void SaveSkin(DressingPlace place, Skin skin, string key)
+        
+        private void SetSkin(DressingPlace place, Skin skin)
         {
             place.SetSkin(skin.SkinModel);
-            PlayerPrefs.SetInt(key, skin.SkinID);
         }
     }
 }

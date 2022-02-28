@@ -30,9 +30,9 @@ namespace Supply
 
         public void TryBuySupply(Supply supply)
         {
-            if (_money.MoneyCount < supply.SupplyPrice) return;
+            if (_money.TryReduceMoney(supply.SupplyPrice) == false)
+                return;
             
-            _money.ChangeMoneyCount(-supply.SupplyPrice);
             _containersHub.SupplyItems(supply.SuppliedProduct, supply.ProductsCount);
         }
     }

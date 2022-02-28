@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Skins
 {
@@ -9,6 +8,7 @@ namespace Skins
         [SerializeField] private SkinView skinTemplate;
         
         private Skin[] _skins;
+        private const string SkinsPath = "Skins";
 
         private static SkinsList _instance;
 
@@ -24,7 +24,7 @@ namespace Skins
 
         private void Awake()
         {
-            _skins = Resources.LoadAll<Skin>("Skins");
+            _skins = Resources.LoadAll<Skin>(SkinsPath);
 
             if(skinsContainer != null)
                 foreach (var skin in _skins)
@@ -35,11 +35,6 @@ namespace Skins
         {
             var view = Instantiate(skinTemplate, skinsContainer);
             view.Init(skin);
-        }
-
-        public Skin GetSkinByID(int id)
-        {
-            return _skins.FirstOrDefault(skin => skin.SkinID == id);
         }
     }
 }

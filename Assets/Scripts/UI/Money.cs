@@ -12,8 +12,6 @@ namespace UI
         
         private TMP_Text _moneyText;
 
-        public int MoneyCount => moneyCount;
-    
         private static Money _instance;
 
         public static Money Instance
@@ -42,6 +40,14 @@ namespace UI
             _moneyText.text = moneyCount.ToString();
         
             PlayerPrefs.SetInt(moneyKey, moneyCount);
+        }
+
+        public bool TryReduceMoney(int value)
+        {
+            if (moneyCount < value) return false;
+            
+            ChangeMoneyCount(-value);
+            return true;
         }
     }
 }
