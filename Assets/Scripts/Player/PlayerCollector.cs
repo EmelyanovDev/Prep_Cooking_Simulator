@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Client;
 using Interactions;
 using Items;
 using UnityEngine;
@@ -15,37 +14,23 @@ namespace Player
         [SerializeField] private float collectDelay;
         [SerializeField] private float collectSpeed;
 
-        private CollectingItem _pickedItem;
+        private Item _pickedItem;
         private bool _tryingCollect;
         private bool _brakeCoroutines;
 
         private void OnTriggerEnter(Collider other)
         {
             _brakeCoroutines = false;
-            
+
             if(_tryingCollect) return;
-            
-            if (_pickedItem == null)
+
+            if (_pickedItem == null && other.TryGetComponent(out IPickItem pick) && pick.CanPickItem())
             {
-                if (other.TryGetComponent(out ItemsContainer itemsContainer) && itemsContainer.CanPickItem())
-                    StartCoroutine(TryPickItem(itemsContainer.GetItem));
-                else if (other.TryGetComponent(out PuttingPlace puttingPlace) && puttingPlace.CanCollectItem(false))
-                    StartCoroutine(TryPickItem(puttingPlace.GetItem));
-                else if (other.TryGetComponent(out KitchenTable collectingPlace) && collectingPlace.HasContainedItem())
-                    StartCoroutine(TryPickItem(collectingPlace.GetItem));
+                StartCoroutine(TryPickItem(pick.PickItem));
             }
-            else
+            else if (_pickedItem != null && other.TryGetComponent(out IPutItem put) && put.CanPutItem())
             {
-                if (other.TryGetComponent(out PuttingPlace puttingPlace) && puttingPlace.CanCollectItem(true) )
-                    StartCoroutine(TryPutItem(puttingPlace.GetItemPoint));
-                else if (other.TryGetComponent(out Trashcan trashcan))
-                    StartCoroutine(TryPutItem(trashcan.GetTrashPoint));
-                else if (other.TryGetComponent(out KitchenTable collectingPlace))
-                    StartCoroutine(TryPutItem(collectingPlace.PutItem));
-                else if (other.TryGetComponent(out ClientsPlace clientsPlace) && clientsPlace.CanPutItem())
-                    StartCoroutine(TryPutItem(clientsPlace.PutItem));
-                else if (other.TryGetComponent(out ItemsContainer itemsContainer))
-                    StartCoroutine(TryPutItem(itemsContainer.PutItem));
+                StartCoroutine(TryPutItem(put.PutItem));
             }
         }
         
@@ -54,7 +39,7 @@ namespace Player
             _brakeCoroutines = true;
         }
 
-        private IEnumerator TryPickItem(Func<CollectingItem> func)
+        private IEnumerator TryPickItem(Func<Item> func)
         {
             _tryingCollect = true;
 
@@ -81,7 +66,7 @@ namespace Player
             yield return null;
         }
 
-        private IEnumerator TryPutItem(Func<CollectingItem, Vector3> func)
+        private IEnumerator TryPutItem(Func<Item, Vector3> func)
         {
             _tryingCollect = true;
 

@@ -7,7 +7,7 @@ namespace Supply
     public class SuppliesHub : MonoBehaviour
     {
         private Money _money;
-        private ContainersHub _containersHub;
+        private BoxesHub _boxesHub;
         
         private static SuppliesHub _instance;
 
@@ -24,7 +24,7 @@ namespace Supply
         private void Awake()
         {
             _money = Money.Instance;
-            _containersHub = ContainersHub.Instance;
+            _boxesHub = BoxesHub.Instance;
         }
 
         public void TryBuySupply(Supply supply)
@@ -32,7 +32,7 @@ namespace Supply
             if (_money.TryReduceMoney(supply.SupplyPrice) == false)
                 return;
             
-            _containersHub.SupplyItems(supply.SuppliedProduct, supply.ProductsCount);
+            _boxesHub.SupplyItems(supply.SuppliedProduct, supply.ProductsCount);
         }
     }
 }

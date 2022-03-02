@@ -2,6 +2,6 @@
 {
     public interface IWashing
     {
-        void Washing();
+        void Washing(float washingSpeed, float coloringMultiplier);
     }
 }

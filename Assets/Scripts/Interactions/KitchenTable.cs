@@ -4,40 +4,48 @@ using UnityEngine;
 
 namespace Interactions
 {
-    public class KitchenTable : MonoBehaviour
+    public class KitchenTable : MonoBehaviour, IPickItem, IPutItem
     {
         [SerializeField] private Transform collectingPoint;
         [SerializeField] private float itemsStep;
         
-        [SerializeField] private List<CollectingItem> _containedItems = new List<CollectingItem>();
-
-        public Vector3 PutItem(CollectingItem collectingItem)
+        [SerializeField] private List<Item> _containedItems = new List<Item>();
+        
+        public Vector3 PutItem(Item item)
         {
             Vector3 collectingPosition = collectingPoint.position + itemsStep * _containedItems.Count * Vector3.up;
-            _containedItems.Add(collectingItem);
-            AddChildComponents(collectingItem);
+            _containedItems.Add(item);
+            AddChildComponents(item);
 
             if (_containedItems.Count <= 1) return collectingPosition;
             
-            collectingItem.transform.parent = _containedItems[0].transform;
+            item.transform.parent = _containedItems[0].transform;
             
-            if (collectingItem != _containedItems[0]) 
-                _containedItems[0].AddChildItem(collectingItem);
+            if (item != _containedItems[0]) 
+                _containedItems[0].AddChildItem(item);
             
             return collectingPosition;
         }
-
-        public bool HasContainedItem() => _containedItems.Count > 0;
-
-        public CollectingItem GetItem()
+        
+        public bool CanPutItem()
         {
-            CollectingItem returningItem = _containedItems[0];
-            _containedItems = new List<CollectingItem>();
+            return true;
+        }
+
+        public Item PickItem()
+        {
+            Item returningItem = _containedItems[0];
+            _containedItems = new List<Item>();
 
             return returningItem;
         }
+        
+        public bool CanPickItem()
+        {
+            return _containedItems.Count > 0;
+        }
 
-        private void AddChildComponents(CollectingItem parentItem)
+        private void AddChildComponents(Item parentItem)
         {
             if (parentItem.ChildItems.Count == 0) return;
 

@@ -4,46 +4,53 @@ using UnityEngine;
 
 namespace Interactions
 {
-    public class PuttingPlace : MonoBehaviour
+    public class PuttingPlace : MonoBehaviour, IPickItem, IPutItem
     {
-        protected PuttingPoint[] PuttingPoints;
+        [SerializeField] private protected float cookingSpeed = 15f;
+        [SerializeField] private protected float coloringMultiplier = 0.002f;
         
+        private protected PuttingPoint[] _puttingPoints;
+
         private void Awake()
         {
-            PuttingPoints = transform.parent.GetComponentsInChildren<PuttingPoint>();
+            _puttingPoints = transform.parent.GetComponentsInChildren<PuttingPoint>();
         }
 
-        public bool CanCollectItem(bool pointEmptyCondition)
+        public Item PickItem()
         {
-            return PuttingPoints.Any(puttingPoint => puttingPoint.CollectingItem == null == pointEmptyCondition);
-        }
-
-        public Vector3 GetItemPoint(CollectingItem collectingItem)
-        {
-            foreach (var puttingPoint in PuttingPoints)
+            foreach (var puttingPoint in _puttingPoints)
             {
-                if (puttingPoint.CollectingItem != null) continue;
+                if (puttingPoint.Item == null) continue;
                 
-                puttingPoint.SetCollectingItem(collectingItem);
-                return puttingPoint.transform.position;
-            }
-
-            return Vector3.zero;
-        }
-
-        public CollectingItem GetItem()
-        {
-            foreach (var puttingPoint in PuttingPoints)
-            {
-                if (puttingPoint.CollectingItem == null) continue;
-                
-                var collectingItem = puttingPoint.CollectingItem;
+                var collectingItem = puttingPoint.Item;
                 puttingPoint.SetCollectingItem(null);
                 return collectingItem;
             }
 
             return null;
         }
+        
+        public bool CanPickItem()
+        {
+            return _puttingPoints.Any(puttingPoint => puttingPoint.Item == null == false);
+        }
+        
+        public Vector3 PutItem(Item item)
+        {
+            foreach (var puttingPoint in _puttingPoints)
+            {
+                if (puttingPoint.Item != null) continue;
+                
+                puttingPoint.SetCollectingItem(item);
+                return puttingPoint.transform.position;
+            }
 
+            return Vector3.zero;
+        }
+        
+        public bool CanPutItem()
+        {
+            return _puttingPoints.Any(puttingPoint => puttingPoint.Item == null);
+        }
     }
 }

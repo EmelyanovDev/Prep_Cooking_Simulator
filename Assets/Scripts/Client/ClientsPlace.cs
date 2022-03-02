@@ -1,3 +1,4 @@
+using Interactions;
 using Items;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ namespace Client
 {
     [RequireComponent(typeof(ClientsPlaceEvaluation))]
     [RequireComponent(typeof(ClientsPlaceOrdering))]
-    public class ClientsPlace : MonoBehaviour
+    public class ClientsPlace : MonoBehaviour, IPutItem
     {
         [SerializeField] private Transform clientsPlace;
         [SerializeField] private Transform placePoint;
@@ -13,7 +14,7 @@ namespace Client
         private ClientsPlaceEvaluation _clientsEvaluation;
         private ClientsPlaceOrdering _clientsOrdering;
         private ClientMovement _client;
-        private CollectingItem _placedItem;
+        private Item _placedItem;
         private bool _isReserved;
 
         public bool IsReserved => _isReserved;
@@ -50,17 +51,17 @@ namespace Client
             _isReserved = condition;
         }
 
-        public bool CanPutItem()
-        {
-            return _placedItem == null && _clientsEvaluation.RecipeIsCreated;
-        }
-
-        public Vector3 PutItem(CollectingItem item)
+        public Vector3 PutItem(Item item)
         {
             _placedItem = item;
             StartCoroutine(_clientsEvaluation.TryEvaluateOrder(_placedItem));
 
             return placePoint.position;
+        }
+        
+        public bool CanPutItem()
+        {
+            return _placedItem == null && _clientsEvaluation.RecipeIsCreated;
         }
         
         public Transform TakePlace(ClientMovement client)

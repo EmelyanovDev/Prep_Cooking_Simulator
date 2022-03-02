@@ -13,17 +13,17 @@ namespace Client
     [RequireComponent(typeof(ClientsPlace))]
     public class ClientsPlaceEvaluation : MonoBehaviour
     {
-        [SerializeField] private CollectingItem dirtyPallet;
+        [SerializeField] private Item dirtyPallet;
         [SerializeField] private SpriteRenderer orderIcon;
         [SerializeField] private float evaluateDelay;
 
-        private ContainersHub _containersHub;
+        private BoxesHub _boxesHub;
         private MoneyGenerator _moneyGenerator;
         private OrdersDisplay _ordersDisplay;
         private Rating _rating;
         private Order _thisOrder;
         private ItemType[] _orderRecipe;
-        [SerializeField] private List<CollectingItem> _orderComponents;
+        [SerializeField] private List<Item> _orderComponents;
         private Transform _placeTrasform;
         private float _finalPercentage;
         private bool _recipeIsCreated;
@@ -37,7 +37,7 @@ namespace Client
             _placeTrasform = GetComponent<ClientsPlace>().PlacePoint;
 
             _ordersDisplay = OrdersDisplay.Instance;
-            _containersHub = ContainersHub.Instance;
+            _boxesHub = BoxesHub.Instance;
             _moneyGenerator = MoneyGenerator.Instance;
             _rating = Rating.Instance;
         }
@@ -53,9 +53,9 @@ namespace Client
             _recipeIsCreated = true;
         }
 
-        public IEnumerator TryEvaluateOrder(CollectingItem putItem)
+        public IEnumerator TryEvaluateOrder(Item putItem)
         {
-            _orderComponents = new List<CollectingItem> {putItem};
+            _orderComponents = new List<Item> {putItem};
             AddChildComponents(putItem);
 
             var count = _orderComponents.Count;
@@ -80,7 +80,7 @@ namespace Client
         private void CreatePallet()
         {
             int palletsCount = _orderComponents.Count(orderComponent => orderComponent.ItemType == ItemType.Pallet);
-            _containersHub.SupplyItems(dirtyPallet, palletsCount);
+            _boxesHub.SupplyItems(dirtyPallet, palletsCount);
         }
 
         private void CreateMoney()
@@ -106,7 +106,7 @@ namespace Client
             FreeUpSpace?.Invoke();
         }
 
-        private void AddChildComponents(CollectingItem parentItem)
+        private void AddChildComponents(Item parentItem)
         {
             if (parentItem.ChildItems.Count == 0) return;
 

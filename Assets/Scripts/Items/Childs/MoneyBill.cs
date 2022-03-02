@@ -2,7 +2,7 @@
 
 namespace Items.Childs
 {
-    public class MoneyBill : CollectingItem
+    public class MoneyBill : Item
     {
         [SerializeField] private int billCost;
 

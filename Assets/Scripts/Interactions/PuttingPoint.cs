@@ -5,10 +5,10 @@ namespace Interactions
 {
     public class PuttingPoint : MonoBehaviour
     {
-        private CollectingItem _collectingItem;
+        private Item _item;
         
-        public CollectingItem CollectingItem => _collectingItem;
+        public Item Item => _item;
 
-        public void SetCollectingItem(CollectingItem collectingItem) => _collectingItem = collectingItem;
+        public void SetCollectingItem(Item item) => _item = item;
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface IFrying
     {
-        void Frying();
+        void Frying(float fryingSpeed, float coloringMultiplier);
     }
 }

@@ -6,7 +6,7 @@ namespace UI
 {
     [RequireComponent(typeof(Button))]
     
-    public class PlayButton : MonoBehaviour
+    public class MenuPlay : MonoBehaviour
     {
         [SerializeField] private int sceneIndex;
         private Button _thisButton;

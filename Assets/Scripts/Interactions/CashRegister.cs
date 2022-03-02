@@ -1,6 +1,5 @@
 ﻿using Items;
 using Items.Childs;
-using Player;
 using UI;
 using UnityEngine;
 
@@ -31,7 +30,7 @@ namespace Interactions
             _money = Money.Instance;
         }
 
-        public Vector3 PutBill(CollectingItem moneyBill)
+        public Vector3 PutBill(Item moneyBill)
         {
             Destroy(moneyBill.gameObject, destroyDelay);
             

@@ -8,7 +8,7 @@ namespace Sounds
         [SerializeField] private AudioSource tapSound;
         [SerializeField] private AudioSource fryingSound;
 
-        public AudioSource FryingSound => fryingSound;
+        public bool FryingPlaying => fryingSound.isPlaying;
         
         private static SoundsCall _instance;
 

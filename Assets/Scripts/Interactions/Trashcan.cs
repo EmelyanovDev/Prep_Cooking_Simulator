@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Interactions
 {
-    public class Trashcan : MonoBehaviour
+    public class Trashcan : MonoBehaviour, IPutItem
     {
         [SerializeField] private float destroyDelay;
         
@@ -14,11 +14,16 @@ namespace Interactions
             _trashPoint = transform.parent;
         }
 
-        public Vector3 GetTrashPoint(CollectingItem collectingItem)
+        public Vector3 PutItem(Item item)
         {
-            Destroy(collectingItem.gameObject, destroyDelay);
+            Destroy(item.gameObject, destroyDelay);
             
             return _trashPoint.position;
+        }
+        
+        public bool CanPutItem()
+        {
+            return true;
         }
     }
 }

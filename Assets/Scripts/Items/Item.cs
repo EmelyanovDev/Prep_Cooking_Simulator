@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Items
 {
-    public abstract class CollectingItem : MonoBehaviour
+    public abstract class Item : MonoBehaviour
     {
         [SerializeField] private ItemType itemType;
         [SerializeField] protected float cookingQuality;
@@ -12,11 +12,11 @@ namespace Items
         private float _collectSpeed;
         private Transform _selfTransform;
         private Transform _targetTransform;
-        [SerializeField] private List<CollectingItem> _childItems = new List<CollectingItem>();
+        [SerializeField] private List<Item> _childItems = new List<Item>();
 
         public ItemType ItemType => itemType;
         public float CookingQuality => cookingQuality;
-        public List<CollectingItem> ChildItems => _childItems;
+        public List<Item> ChildItems => _childItems;
 
         private void FixedUpdate()
         {
@@ -45,6 +45,6 @@ namespace Items
             }
         }
 
-        public void AddChildItem(CollectingItem childItem) => _childItems.Add(childItem);
+        public void AddChildItem(Item childItem) => _childItems.Add(childItem);
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class ShopMovement : MonoBehaviour
+    public class ShopAnimation : MonoBehaviour
     {
         [SerializeField] private Vector2 endPosition;
         [SerializeField] private float moveSpeed;
