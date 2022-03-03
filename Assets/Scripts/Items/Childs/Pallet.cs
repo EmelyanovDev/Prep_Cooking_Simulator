@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Items.Childs
 {
-    [RequireComponent(typeof(MeshRenderer))]
     public class Pallet : Item, IWashing
     {
         [SerializeField] private MeshRenderer dirtStain;

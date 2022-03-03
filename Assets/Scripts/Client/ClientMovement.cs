@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,10 +8,11 @@ namespace Client
     
     public class ClientMovement : MonoBehaviour
     {
-        private ClientsPlace _clientsPlace;
+        private PlaceInteraction _placeInteraction;
         private ClientsPlacesHub _clientsPlacesHub;
         private NavMeshAgent _navMeshAgent;
         private Transform _selfTransform;
+        private bool _madeOrder;
 
         private void Awake()
         {
@@ -25,24 +27,26 @@ namespace Client
             _selfTransform.position = position;
             gameObject.SetActive(true);
             
-            _clientsPlace = _clientsPlacesHub.GetEmptyPlace();
-            if (_clientsPlace != null)
+            _placeInteraction = _clientsPlacesHub.GetEmptyPlace();
+            if (_placeInteraction != null)
             {
-                _navMeshAgent.SetDestination(_clientsPlace.TakePlace(this).position);
+                _navMeshAgent.SetDestination(_placeInteraction.TakePlace(this).position);
             }
         }
 
         public void FreeUpPlace()
         {
-            _clientsPlace = null;
+            _placeInteraction = null;
             _navMeshAgent.SetDestination(_clientsPlacesHub.GetExitPoint().position);
+            
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out ClientsPlace clientsPlace) && clientsPlace == _clientsPlace && clientsPlace.RecipeIsCreated() == false)
+            if (other.TryGetComponent(out PlaceInteraction clientsPlace) && clientsPlace == _placeInteraction && _madeOrder == false)
             {
                 clientsPlace.CreateNewOrder();
+                _madeOrder = true;
             }
         }
     }

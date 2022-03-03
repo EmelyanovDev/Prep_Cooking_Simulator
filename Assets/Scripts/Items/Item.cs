@@ -8,7 +8,7 @@ namespace Items
     {
         [SerializeField] private ItemType itemType;
         [SerializeField] protected float cookingQuality;
-        
+
         private float _collectSpeed;
         private Transform _selfTransform;
         private Transform _targetTransform;

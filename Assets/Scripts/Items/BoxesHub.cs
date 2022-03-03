@@ -24,16 +24,16 @@ namespace Items
             _itemsContainers = FindObjectsOfType<ItemsBox>();
         }
 
-        public void SupplyItems(Item suppliedItem, int itemsCount)
+        public void SupplyItems(Item item, int itemsCount)
         {
-            var container = FindContainerByType(suppliedItem);
+            var container = FindBoxByType(item);
 
             container.DeliverySelfItems(itemsCount);
         }
 
-        private ItemsBox FindContainerByType(Item findingItem)
+        private ItemsBox FindBoxByType(Item boxItem)
         {
-            return _itemsContainers.FirstOrDefault(itemsContainer => itemsContainer.Item == findingItem);
+            return _itemsContainers.FirstOrDefault(itemsContainer => itemsContainer.Item == boxItem);
         }
     }
 }

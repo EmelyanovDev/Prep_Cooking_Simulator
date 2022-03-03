@@ -6,10 +6,10 @@ namespace Interactions
 {
     public class PuttingPlace : MonoBehaviour, IPickItem, IPutItem
     {
-        [SerializeField] private protected float cookingSpeed = 15f;
-        [SerializeField] private protected float coloringMultiplier = 0.002f;
+        [SerializeField] protected float cookingSpeed = 15f;
+        [SerializeField] protected float coloringMultiplier = 0.002f;
         
-        private protected PuttingPoint[] _puttingPoints;
+        protected PuttingPoint[] _puttingPoints;
 
         private void Awake()
         {
@@ -32,7 +32,7 @@ namespace Interactions
         
         public bool CanPickItem()
         {
-            return _puttingPoints.Any(puttingPoint => puttingPoint.Item == null == false);
+            return _puttingPoints.Any(point => point.Item == null == false);
         }
         
         public Vector3 PutItem(Item item)

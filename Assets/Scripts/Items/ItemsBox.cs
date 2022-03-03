@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Items
 {
-    public class ItemsBox : MonoBehaviour, IPickItem, IPutItem
+    public class ItemsBox : MonoBehaviour, IPickItem
     {
         [SerializeField] private Item item;
         [SerializeField] private float itemsStep;
@@ -54,6 +54,7 @@ namespace Items
             return _containedItems.Count > 0;
         }
 
+        /*
         public Vector3 PutItem(Item putItem)
         {
             Vector3 itemPosition = _selfTransform.position + itemsStep * _containedItems.Count * Vector3.up;
@@ -65,6 +66,6 @@ namespace Items
         public bool CanPutItem()
         {
             return true;
-        }
+        }*/
     }
 }

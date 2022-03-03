@@ -18,7 +18,7 @@ namespace Player
         private bool _tryingCollect;
         private bool _brakeCoroutines;
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             _brakeCoroutines = false;
 

@@ -6,6 +6,8 @@ namespace Items.Childs
     [RequireComponent(typeof(MeshRenderer))]
     public class Bacon : Item, IFrying
     {
+        [SerializeField] protected ParticleSystem cookingEffect;
+        
         private MeshRenderer _renderer;
         private SoundsCall _soundsCall;
         private bool _soundPlayed;
@@ -29,6 +31,8 @@ namespace Items.Childs
             }
             
             cookingQuality += cookingSpeed * Time.deltaTime;
+            if(cookingEffect.isPlaying == false)
+                cookingEffect.Play();
             
             var color = _renderer.material.color;
             float coloringValue = cookingSpeed * coloringMultiplier * Time.deltaTime;

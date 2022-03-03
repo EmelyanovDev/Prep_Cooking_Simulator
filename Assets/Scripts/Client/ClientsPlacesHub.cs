@@ -7,7 +7,7 @@ namespace Client
     {
         [SerializeField] private Transform exitPoint;
         
-        private ClientsPlace[] _clientsPlaces;
+        private PlaceInteraction[] _clientsPlaces;
         
         private static ClientsPlacesHub _instance;
 
@@ -22,7 +22,7 @@ namespace Client
 
         private void Awake()
         {
-            _clientsPlaces = FindObjectsOfType<ClientsPlace>();
+            _clientsPlaces = FindObjectsOfType<PlaceInteraction>();
         }
 
         public bool HasEmptyPlace()
@@ -30,7 +30,7 @@ namespace Client
             return _clientsPlaces.Any(clientsPlace => clientsPlace.IsReserved == false);
         }
 
-        public ClientsPlace GetEmptyPlace()
+        public PlaceInteraction GetEmptyPlace()
         {
             foreach (var clientsPlace in _clientsPlaces)
             {

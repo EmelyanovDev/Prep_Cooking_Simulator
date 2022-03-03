@@ -6,7 +6,7 @@ namespace Client
 {
     [RequireComponent(typeof(ClientsPlaceEvaluation))]
     [RequireComponent(typeof(ClientsPlaceOrdering))]
-    public class ClientsPlace : MonoBehaviour, IPutItem
+    public class PlaceInteraction : MonoBehaviour, IPutItem
     {
         [SerializeField] private Transform clientsPlace;
         [SerializeField] private Transform placePoint;
@@ -34,11 +34,6 @@ namespace Client
         private void OnDisable()
         {
             _clientsEvaluation.FreeUpSpace -= FreeUpPlace;
-        }
-
-        public bool RecipeIsCreated()
-        {
-            return _clientsEvaluation.RecipeIsCreated;
         }
 
         public void CreateNewOrder()
