@@ -33,7 +33,9 @@ namespace Client
                 yield return new WaitForSeconds(createDelay + Random.Range(-createRange, createRange));
 
                 if (_placesHub.HasEmptyPlace())
+                {
                     _clientsPool.ActivateClient(_clientCreatePoint.position);
+                }
             }
         }
     }

@@ -13,8 +13,10 @@ namespace Client
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.TryGetComponent(out ClientMovement clientMovement))
+            if (other.TryGetComponent(out ClientMovement clientMovement))
+            {
                 _clientsPool.DeactivateClient(clientMovement);
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Ordering
 
         private void Start()
         {
-            Vector3 inspectorRotation = (_selfTransform.rotation.eulerAngles - transform.parent.rotation.eulerAngles) + rotationVector;
+            Vector3 inspectorRotation = _selfTransform.rotation.eulerAngles - _selfTransform.parent.rotation.eulerAngles + rotationVector;
             _selfTransform.rotation = Quaternion.Euler(inspectorRotation);
         }
     }

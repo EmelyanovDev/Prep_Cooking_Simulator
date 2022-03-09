@@ -9,8 +9,7 @@ namespace Client
         private Transform _selfTransform;
         private Animator _animator;
         private Vector3 _previousPosition;
-        private float _speed;
-        
+
         private readonly int _isWalk = Animator.StringToHash("IsWalk");
 
         private void Awake()
@@ -25,8 +24,9 @@ namespace Client
         {
             var position = _selfTransform.position;
             
-            _speed = Mathf.Abs(Vector3.Distance(_previousPosition, position));
-            _animator.SetBool(_isWalk, _speed != 0);
+            float distance = Mathf.Abs(Vector3.Distance(_previousPosition, position));
+            bool isMoving = distance != 0;
+            _animator.SetBool(_isWalk, isMoving);
             
             _previousPosition = position;
         }

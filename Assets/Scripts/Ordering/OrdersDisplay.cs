@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Ordering
@@ -30,20 +31,14 @@ namespace Ordering
 
         public void DeleteOrder(Order order)
         {
-            OrderView view = FindViewByOrder(order);
+            OrderView view = FindOrderView(order);
             _orderViews.Remove(view);
             Destroy(view.gameObject);
         }
 
-        private OrderView FindViewByOrder(Order order)
+        private OrderView FindOrderView(Order order)
         {
-            foreach (var orderView in _orderViews)
-            {
-                if (orderView.ThisOrder == order)
-                    return orderView;
-            }
-
-            return null;
+            return _orderViews.FirstOrDefault(orderView => orderView.ThisOrder == order);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Skins
     {
         private PlayerSkin _playerSkin;
         private Money _money;
+        private JsonSaveSystem _saveSystem;
 
         private static SkinsHub _instance;
 
@@ -26,45 +27,46 @@ namespace Skins
         {
             _money = Money.Instance;
             _playerSkin = PlayerSkin.Instance;
+            _saveSystem = new JsonSaveSystem();
+        }
+
+        private void Start()
+        {
+            var headSkin = _saveSystem.Load().headSkin;
+            
+            if(headSkin != null)
+                PutOnSkin(headSkin);
         }
 
         public void TrySetSkin(Skin skin)
         {
-            var saveSystem = new JsonSaveSystem();
-
-            if (saveSystem.Load().Skins.Contains(skin))
+            if (_saveSystem.Load().boughtSkins.Contains(skin) || TryBuySkin(skin))
             {
-                _playerSkin.PutOnSkin(skin);
-            }
-            else if (_money.TryReduceMoney(skin.SkinPrice))
-            {
-                BuySkin(skin, saveSystem);
-                
-                _playerSkin.PutOnSkin(skin);
+                PutOnSkin(skin);
             }
             else
             {
-                print("Not enough money & skin not bought");
+                Debug.Log("Not enough money & skin not bought");
             }
         }
 
-        private void BuySkin(Skin skin, JsonSaveSystem saveSystem)
+        private bool TryBuySkin(Skin skin)
         {
-            var data = saveSystem.Load();
-            data.Skins.Add(skin);
-            switch (skin.SkinType)
-            {
-                case SkinType.Head:
-                    data.HeadSkin = skin;
-                    break;
-                case SkinType.Face:
-                    data.FaceSkin = skin;
-                    break;
-                case SkinType.Body:
-                    data.BodySkin = skin;
-                    break;
-            }
-            saveSystem.Save(data);
+            if (_money.TryReduceMoney(skin.SkinPrice) == false) return false;
+            
+            var data = _saveSystem.Load();
+            data.boughtSkins.Add(skin);
+            _saveSystem.Save(data);
+            return true;
+        }
+
+        private void PutOnSkin(Skin skin)
+        {
+            var data = _saveSystem.Load();
+            data.headSkin = skin;
+            _saveSystem.Save(data);
+            
+            _playerSkin.PutOnSkin(skin);
         }
     }
 }

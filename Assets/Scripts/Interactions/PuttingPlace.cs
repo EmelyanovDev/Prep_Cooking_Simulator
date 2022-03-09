@@ -32,7 +32,7 @@ namespace Interactions
         
         public bool CanPickItem()
         {
-            return _puttingPoints.Any(point => point.Item == null == false);
+            return _puttingPoints.Any(point => point.Item != null);
         }
         
         public Vector3 PutItem(Item item)
@@ -50,7 +50,7 @@ namespace Interactions
         
         public bool CanPutItem()
         {
-            return _puttingPoints.Any(puttingPoint => puttingPoint.Item == null);
+            return _puttingPoints.Any(point => point.Item == null);
         }
     }
 }

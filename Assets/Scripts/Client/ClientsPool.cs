@@ -25,12 +25,16 @@ namespace Client
         private void Awake()
         {
             for (int i = 0; i < startClientsCount; i++)
+            {
                 CreateClient(Vector3.zero);
+            }
         }
 
         private void CreateClient(Vector3 position)
         {
-            var client = Instantiate(clientTemplates[Random.Range(0, clientTemplates.Length)], position, Quaternion.identity);
+            var randomClient = clientTemplates[Random.Range(0, clientTemplates.Length)];
+            var client = Instantiate(randomClient, position, Quaternion.identity);
+            
             client.gameObject.SetActive(false);
             _unActivatedClients.Add(client);
         }
@@ -38,7 +42,9 @@ namespace Client
         public void ActivateClient(Vector3 position)
         {
             if (_unActivatedClients.Count == 0)
+            {
                 CreateClient(position);
+            }
 
             var client = _unActivatedClients[0];
             client.Activating(position);

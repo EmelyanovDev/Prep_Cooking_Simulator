@@ -7,10 +7,8 @@ namespace SaveSystem
     [Serializable]
     public class SaveData
     {
-        public Skin HeadSkin;
-        public Skin FaceSkin;
-        public Skin BodySkin;
-        
-        public List<Skin> Skins;
+        public Skin headSkin;
+
+        public List<Skin> boughtSkins = new List<Skin>();
     }
 }

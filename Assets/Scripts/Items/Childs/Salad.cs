@@ -31,9 +31,16 @@ namespace Items.Childs
             }
             
             cookingQuality += cookingSpeed * Time.deltaTime;
-            if(cookingEffect.isPlaying == false)
+            if (cookingEffect.isPlaying == false)
+            {
                 cookingEffect.Play();
-            
+            }
+
+            Coloring(cookingSpeed, coloringMultiplier);
+        }
+
+        private void Coloring(float cookingSpeed, float coloringMultiplier)
+        {
             var color = _renderer.material.color;
             float coloringValue = cookingSpeed * coloringMultiplier * Time.deltaTime;
             color.r += coloringValue;

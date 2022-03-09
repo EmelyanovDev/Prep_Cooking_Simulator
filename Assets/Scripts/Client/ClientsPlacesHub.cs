@@ -43,6 +43,9 @@ namespace Client
             return null;
         }
         
-        public Transform GetExitPoint() => exitPoint;
+        public Transform GetExitPoint()
+        {
+            return exitPoint;
+        }
     }
 }

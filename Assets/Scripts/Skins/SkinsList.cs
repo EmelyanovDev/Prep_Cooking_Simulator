@@ -14,9 +14,13 @@ namespace Skins
         {
             _skins = Resources.LoadAll<Skin>(SkinsPath);
 
-            if(skinsContainer != null)
+            if (skinsContainer != null)
+            {
                 foreach (var skin in _skins)
+                {
                     CreateSkin(skin);
+                }
+            }
         }
 
         private void CreateSkin(Skin skin)

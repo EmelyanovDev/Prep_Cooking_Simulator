@@ -32,10 +32,10 @@ namespace Interactions
 
         public Vector3 PutBill(Item moneyBill)
         {
-            Destroy(moneyBill.gameObject, destroyDelay);
-            
             if(moneyBill is MoneyBill bill)
                 _money.ChangeMoneyCount(bill.BillCost);
+            
+            Destroy(moneyBill.gameObject, destroyDelay);
             
             return _selfTransform.position;
         }

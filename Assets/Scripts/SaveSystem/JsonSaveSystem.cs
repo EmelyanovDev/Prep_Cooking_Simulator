@@ -6,8 +6,7 @@ namespace SaveSystem
     public class JsonSaveSystem 
     {
         private readonly string _jsonPath;
-        private string _data;
-        
+
         public JsonSaveSystem()
         {
             _jsonPath = Application.persistentDataPath + "/Save.json";
@@ -15,16 +14,21 @@ namespace SaveSystem
 
         public void Save(SaveData saveData)
         {
-            _data = JsonUtility.ToJson(saveData);
+            Debug.Log(_jsonPath);
+            string data = JsonUtility.ToJson(saveData);
             
-            File.WriteAllText(_jsonPath, _data);
+            File.WriteAllText(_jsonPath, data);
         }
 
         public SaveData Load()
         {
-            _data = File.ReadAllText(_jsonPath);
+            if (File.Exists(_jsonPath) == false)
+            {
+                return new SaveData();
+            }
 
-            return JsonUtility.FromJson<SaveData>(_data);
+            string data = File.ReadAllText(_jsonPath);
+            return JsonUtility.FromJson<SaveData>(data);
         }
     }
 }
