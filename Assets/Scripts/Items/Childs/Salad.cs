@@ -6,7 +6,7 @@ namespace Items.Childs
     [RequireComponent(typeof(MeshRenderer))]
     public class Salad : Item, IWashing
     {
-        [SerializeField] protected ParticleSystem cookingEffect;
+        [SerializeField] private ParticleSystem cookingEffect;
         
         private MeshRenderer _renderer;
         private SoundsCall _soundsCall;
@@ -24,7 +24,7 @@ namespace Items.Childs
             {
                 if (_soundPlayed == false)
                 {
-                    _soundsCall.PlayTap();
+                    _soundsCall.TapSound.Play();
                     _soundPlayed = true;
                 }
                 return;
@@ -36,6 +36,7 @@ namespace Items.Childs
                 cookingEffect.Play();
             }
 
+            _soundsCall.TryWashing();
             Coloring(cookingSpeed, coloringMultiplier);
         }
 

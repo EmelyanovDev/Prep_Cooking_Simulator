@@ -6,7 +6,7 @@ namespace Items.Childs
     [RequireComponent(typeof(MeshRenderer))]
     public class Meat : Item, IFrying
     {
-        [SerializeField] protected ParticleSystem cookingEffect;
+        [SerializeField] private ParticleSystem cookingEffect;
         
         private MeshRenderer _renderer;
         private SoundsCall _soundsCall;
@@ -24,7 +24,7 @@ namespace Items.Childs
             {
                 if (_soundPlayed == false)
                 {
-                    _soundsCall.PlayBell();
+                    _soundsCall.BellSound.Play();
                     _soundPlayed = true;
                 }
                 return;
@@ -36,11 +36,7 @@ namespace Items.Childs
                 cookingEffect.Play();
             }
             
-            if (_soundsCall.FryingPlaying == false)
-            {
-                _soundsCall.PlayFrying();
-            }
-
+            _soundsCall.TryFrying();
             Coloring(cookingSpeed, coloringMultiplier);
         }
 

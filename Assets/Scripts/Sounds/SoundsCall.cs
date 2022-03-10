@@ -7,9 +7,11 @@ namespace Sounds
         [SerializeField] private AudioSource bellSound;
         [SerializeField] private AudioSource tapSound;
         [SerializeField] private AudioSource fryingSound;
-
-        public bool FryingPlaying => fryingSound.isPlaying;
+        [SerializeField] private AudioSource washingSound;
         
+        public AudioSource BellSound => bellSound;
+        public AudioSource TapSound => tapSound;
+
         private static SoundsCall _instance;
 
         public static SoundsCall Instance
@@ -22,19 +24,20 @@ namespace Sounds
             }
         }
 
-        public void PlayBell()
+        public void TryFrying()
         {
-            bellSound.Play();
+            if (fryingSound.isPlaying == false)
+            {
+                fryingSound.Play();
+            }
         }
 
-        public void PlayTap()
+        public void TryWashing()
         {
-            tapSound.Play();
-        }
-
-        public void PlayFrying()
-        {
-            fryingSound.Play();
+            if (washingSound.isPlaying == false)
+            {
+                washingSound.Play();
+            }
         }
     }
 }
