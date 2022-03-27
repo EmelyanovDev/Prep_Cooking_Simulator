@@ -1,5 +1,5 @@
-using UnityEngine;
 using GoogleMobileAds.Api;
+using UnityEngine;
 
 namespace Advertisement
 {
@@ -7,7 +7,7 @@ namespace Advertisement
     {
         private void Awake()
         {
-            MobileAds.Initialize(status => { });
+            MobileAds.Initialize(initializationStatus => { });
         }
     }
 }

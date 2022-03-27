@@ -43,9 +43,9 @@ namespace Client
             return null;
         }
         
-        public Transform GetExitPoint()
+        public Vector3 GetExitPoint()
         {
-            return exitPoint;
+            return exitPoint.position;
         }
     }
 }

@@ -7,12 +7,10 @@ namespace Skins
     {
         [SerializeField] private GameObject skinModel;
         [SerializeField] private Sprite skinIcon;
-        //[SerializeField] private SkinType skinType;
         [SerializeField] private int skinPrice;
 
         public GameObject SkinModel => skinModel;
         public Sprite SkinIcon => skinIcon;
-        //public SkinType SkinType => skinType;
         public int SkinPrice => skinPrice;
     }
 }

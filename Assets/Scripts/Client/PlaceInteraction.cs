@@ -59,11 +59,11 @@ namespace Client
             return _placedItem == null && _clientsEvaluation.RecipeIsCreated;
         }
         
-        public Transform TakePlace(ClientMovement client)
+        public Vector3 TakePlace(ClientMovement client)
         {
             _client = client;
             
-            return clientsPlace;
+            return clientsPlace.position;
         }
         
         private void FreeUpPlace()

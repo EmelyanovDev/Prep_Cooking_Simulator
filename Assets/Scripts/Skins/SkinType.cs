@@ -2,7 +2,7 @@
 {
     public enum SkinType
     {
-        Head,
+        Hat,
         Face,
         Body,
     }

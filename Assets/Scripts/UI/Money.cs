@@ -34,19 +34,15 @@ namespace UI
             }
         }
 
-        public void ChangeMoneyCount(int changeCount)
+        public bool TryChangeMoney(int changeCount)
         {
+            if (-changeCount > moneyCount)
+                return false;
+            
             moneyCount += changeCount;
             _moneyText.text = moneyCount.ToString();
         
             PlayerPrefs.SetInt(moneyKey, moneyCount);
-        }
-
-        public bool TryReduceMoney(int value)
-        {
-            if (moneyCount < value) return false;
-            
-            ChangeMoneyCount(-value);
             return true;
         }
     }

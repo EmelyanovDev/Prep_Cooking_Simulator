@@ -11,8 +11,6 @@ namespace Player
         [SerializeField] private Joystick joystick;
         [SerializeField] private Transform motionIndicator;
         [SerializeField] private Vector3 rotation;
-        
-        private float turnSmoothVelocity;
 
         private Quaternion _rotateMultiplier;
         private Rigidbody _rigidbody;
@@ -28,17 +26,16 @@ namespace Player
 
         private void FixedUpdate()
         {
-            Vector3 moving = joystick.Direction * moveSpeed * Time.deltaTime;
-            _rigidbody.velocity = _rotateMultiplier * moving;
-
-            if (joystick.Direction != Vector3.zero)
-            {
-                _selfTransform.forward = _rotateMultiplier * joystick.Direction;
-            }
-
             Vector3 indicatorPosition = _selfTransform.position + _rotateMultiplier * joystick.Direction * motionIndicatorSpeed;
             indicatorPosition.y = motionIndicator.position.y;
             motionIndicator.position = indicatorPosition;
+
+            if (joystick.Direction == Vector3.zero) return;
+            
+            Vector3 moving = joystick.Direction * moveSpeed * Time.deltaTime;
+            _rigidbody.velocity = _rotateMultiplier * moving;
+            
+            _selfTransform.forward = _rotateMultiplier * joystick.Direction;
         }
     }
 }

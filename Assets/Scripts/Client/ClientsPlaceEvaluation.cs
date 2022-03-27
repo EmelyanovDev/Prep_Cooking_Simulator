@@ -64,7 +64,7 @@ namespace Client
 
         private void CreatePallet()
         {
-            int palletsCount = _orderComponents.Count(orderComponent => orderComponent.ItemType == ItemType.Pallet);
+            int palletsCount = _orderComponents.Count(orderComponent => orderComponent.ItemType == Items.ItemType.Pallet);
             _boxesHub.SupplyItems(dirtyPallet, palletsCount);
         }
         

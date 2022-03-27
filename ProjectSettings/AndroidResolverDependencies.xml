@@ -1,6 +1,6 @@
 <dependencies>
   <packages>
-    <package>com.google.android.gms:play-services-ads:20.0.0</package>
+    <package>com.google.android.gms:play-services-ads:20.6.0</package>
   </packages>
   <files />
   <settings>

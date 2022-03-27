@@ -29,14 +29,15 @@ namespace Client
             _currentPlace = _clientsPlacesHub.GetEmptyPlace();
             if (_currentPlace != null)
             {
-                _navMeshAgent.SetDestination(_currentPlace.TakePlace(this).position);
-            }
+                _navMeshAgent.SetDestination(_currentPlace.TakePlace(this));
+            }   
         }
 
-        public void FreeUpPlace()
+        public void FreeUpPlace() //освободить место
         {
             _currentPlace = null;
-            _navMeshAgent.SetDestination(_clientsPlacesHub.GetExitPoint().position);
+            _madeOrder = false;
+            _navMeshAgent.SetDestination(_clientsPlacesHub.GetExitPoint());
         }
 
         private void OnTriggerEnter(Collider other)

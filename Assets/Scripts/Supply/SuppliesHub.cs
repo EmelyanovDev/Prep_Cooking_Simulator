@@ -29,7 +29,7 @@ namespace Supply
 
         public void TryBuySupply(Supply supply)
         {
-            if (_money.TryReduceMoney(supply.SupplyPrice) == false)
+            if (_money.TryChangeMoney(-supply.SupplyPrice) == false)
                 return;
             
             _boxesHub.SupplyItems(supply.SuppliedProduct, supply.ProductsCount);

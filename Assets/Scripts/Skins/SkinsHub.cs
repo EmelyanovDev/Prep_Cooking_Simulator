@@ -46,13 +46,13 @@ namespace Skins
             }
             else
             {
-                Debug.Log("Not enough money & skin not bought");
+                Debug.Log("Not enough money || skin not bought");
             }
         }
 
         private bool TryBuySkin(Skin skin)
         {
-            if (_money.TryReduceMoney(skin.SkinPrice) == false) return false;
+            if (_money.TryChangeMoney(-skin.SkinPrice) == false) return false;
             
             var data = _saveSystem.Load();
             data.boughtSkins.Add(skin);

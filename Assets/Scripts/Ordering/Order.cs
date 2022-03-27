@@ -7,11 +7,11 @@ namespace Ordering
     public class Order : ScriptableObject
     {
         [SerializeField] private Sprite orderIcon;
-        [SerializeField] private ItemType[] orderRecipe;
+        [SerializeField] private Items.ItemType[] orderRecipe;
         [SerializeField] private float orderDuration;
         
         public Sprite OrderIcon => orderIcon;
-        public ItemType[] OrderRecipe => orderRecipe;
+        public Items.ItemType[] OrderRecipe => orderRecipe;
         public float OrderDuration => orderDuration;
     }
 }

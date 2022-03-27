@@ -33,7 +33,7 @@ namespace Interactions
         public Vector3 PutBill(Item moneyBill)
         {
             if(moneyBill is MoneyBill bill)
-                _money.ChangeMoneyCount(bill.BillCost);
+                _money.TryChangeMoney(bill.BillCost);
             
             Destroy(moneyBill.gameObject, destroyDelay);
             
