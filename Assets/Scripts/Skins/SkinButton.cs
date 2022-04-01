@@ -32,7 +32,8 @@ namespace Skins
 
         private void OnButtonClick()
         {
-            _skinsHub.TrySetSkin(_skinView.ThisSkin);
+            if(_skinsHub.TrySetSkin(_skinView.ThisSkin))
+                _skinView.DeactivateText();
         }
     }
 }

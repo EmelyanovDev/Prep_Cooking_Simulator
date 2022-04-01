@@ -38,15 +38,17 @@ namespace Skins
                 PutOnSkin(headSkin);
         }
 
-        public void TrySetSkin(Skin skin)
+        public bool TrySetSkin(Skin skin)
         {
             if (_saveSystem.Load().boughtSkins.Contains(skin) || TryBuySkin(skin))
             {
                 PutOnSkin(skin);
+                return true;
             }
             else
             {
                 Debug.Log("Not enough money || skin not bought");
+                return false;
             }
         }
 

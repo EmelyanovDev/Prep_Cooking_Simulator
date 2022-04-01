@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using SaveSystem;
+using UnityEngine;
 
 namespace Skins
 {
@@ -8,10 +10,12 @@ namespace Skins
         [SerializeField] private SkinView skinTemplate;
         
         private Skin[] _skins;
+        private Skin[] _boughtSkins;
         private const string SkinsPath = "Skins";
 
         private void Awake()
         {
+            _boughtSkins = new JsonSaveSystem().Load().boughtSkins.ToArray();
             _skins = Resources.LoadAll<Skin>(SkinsPath);
 
             if (skinsContainer != null)
@@ -26,7 +30,8 @@ namespace Skins
         private void CreateSkin(Skin skin)
         {
             var view = Instantiate(skinTemplate, skinsContainer);
-            view.Init(skin);
+            bool isBought = _boughtSkins.Contains(skin);
+            view.Init(skin, isBought);
         }
     }
 }

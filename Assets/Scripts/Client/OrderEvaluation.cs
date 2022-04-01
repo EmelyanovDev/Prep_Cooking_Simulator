@@ -7,7 +7,7 @@ namespace Client
 {
     public static class OrderEvaluation
     {
-        public static float EvaluateOrder(Item item, Items.ItemType[] orderRecipe)
+        public static float EvaluateOrder(Item item, ItemType[] orderRecipe)
         {
             List<Item> orderComponents = new List<Item> {item};
             AddChildComponents(orderComponents, item);

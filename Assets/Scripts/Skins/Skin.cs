@@ -8,9 +8,11 @@ namespace Skins
         [SerializeField] private GameObject skinModel;
         [SerializeField] private Sprite skinIcon;
         [SerializeField] private int skinPrice;
-
+        [SerializeField] private bool writeText = true;
+        
         public GameObject SkinModel => skinModel;
         public Sprite SkinIcon => skinIcon;
         public int SkinPrice => skinPrice;
+        public bool WriteText => writeText;
     }
 }

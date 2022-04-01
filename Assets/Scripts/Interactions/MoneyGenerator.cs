@@ -32,13 +32,12 @@ namespace Interactions
         public IEnumerator CreateMoney(Vector3 startPosition, float orderResult)
         {
             int count = 0;
-            
-            if (orderResult > 70)
-                count++;
-            if (orderResult > 80)
-                count++;
-            if (orderResult > 90)
-                count++;
+
+            for (int i = 34; i < 110; i += 33)
+            {
+                if (orderResult > i)
+                    count++;
+            }
             
             for (int i = 0; i < count; i++)
             {
