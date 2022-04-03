@@ -1,4 +1,5 @@
 ﻿using Items;
+using Sounds;
 using UI;
 using UnityEngine;
 
@@ -8,6 +9,10 @@ namespace Supply
     {
         private Money _money;
         private BoxesHub _boxesHub;
+        
+        private SoundsCall _soundsCall;
+        private AudioSource _buttonSound;
+        private AudioSource _errorSound;
         
         private static SuppliesHub _instance;
 
@@ -25,13 +30,21 @@ namespace Supply
         {
             _money = Money.Instance;
             _boxesHub = BoxesHub.Instance;
+            
+            _soundsCall = SoundsCall.Instance;
+            _buttonSound = _soundsCall.ActionSound;
+            _errorSound = _soundsCall.ErrorSound;
         }
 
         public void TryBuySupply(Supply supply)
         {
             if (_money.TryChangeMoney(-supply.SupplyPrice) == false)
+            {
+                _errorSound.Play();
                 return;
-            
+            }
+                
+            _buttonSound.Play();
             _boxesHub.SupplyItems(supply.SuppliedProduct, supply.ProductsCount);
         }
     }

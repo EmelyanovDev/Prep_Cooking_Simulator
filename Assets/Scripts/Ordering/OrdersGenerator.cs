@@ -1,3 +1,4 @@
+using Sounds;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,7 +8,7 @@ namespace Ordering
     {
         private OrdersDisplay _ordersDisplay;
         private Order[] _orders;
-        
+
         private static OrdersGenerator _instance;
         
         public static OrdersGenerator Instance
@@ -29,7 +30,7 @@ namespace Ordering
         {
             Order newOrder = _orders[Random.Range(0, _orders.Length)];
             _ordersDisplay.DisplayNewOrder(newOrder);
-            
+
             return newOrder;
         }
     }

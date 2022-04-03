@@ -10,12 +10,14 @@ namespace Items.Childs
         
         private MeshRenderer _renderer;
         private SoundsCall _soundsCall;
+        private AudioSource _tapSound;
         private bool _soundPlayed;
 
         private void Awake()
         {
             _renderer = GetComponent<MeshRenderer>();
             _soundsCall = SoundsCall.Instance;
+            _tapSound = _soundsCall.TapSound;
         }
 
         public void Washing(float cookingSpeed, float coloringMultiplier)
@@ -24,7 +26,7 @@ namespace Items.Childs
             {
                 if (_soundPlayed == false)
                 {
-                    _soundsCall.TapSound.Play();
+                    _tapSound.Play();
                     _soundPlayed = true;
                 }
                 return;

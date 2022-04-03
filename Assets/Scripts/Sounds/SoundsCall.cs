@@ -9,9 +9,19 @@ namespace Sounds
         [SerializeField] private AudioSource tapSound;
         [SerializeField] private AudioSource fryingSound;
         [SerializeField] private AudioSource washingSound;
-        
+        [SerializeField] private AudioSource pickSound;
+        [SerializeField] private AudioSource putSound;
+        [SerializeField] private AudioSource skinSound;
+        [SerializeField] private AudioSource errorSound;
+        [SerializeField] private AudioSource actionSound;
+         
         public AudioSource BellSound => bellSound;
         public AudioSource TapSound => tapSound;
+        public AudioSource PickSound => pickSound;
+        public AudioSource PutSound => putSound;
+        public AudioSource SkinSound => skinSound;
+        public AudioSource ErrorSound => errorSound;
+        public AudioSource ActionSound => actionSound;
 
         private static SoundsCall _instance;
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Interactions;
 using Items;
+using Sounds;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,8 +16,20 @@ namespace Player
         [SerializeField] private float collectSpeed;
 
         private Item _pickedItem;
+        
+        private SoundsCall _soundsCall;
+        private AudioSource _pickSound;
+        private AudioSource _putSound;
+        
         private bool _tryingCollect;
         private bool _brakeCoroutines;
+
+        private void Awake()
+        {
+            _soundsCall = SoundsCall.Instance;
+            _pickSound = _soundsCall.PickSound;
+            _putSound = _soundsCall.PutSound;
+        }
 
         private void OnTriggerStay(Collider other)
         {
@@ -61,6 +74,8 @@ namespace Player
             var item = func();
             item.SetTargetTransform(pickingPoint, collectSpeed);
             _pickedItem = item;
+            
+            _pickSound.Play();
 
             _tryingCollect = false;
             yield return null;
@@ -87,6 +102,8 @@ namespace Player
 
             StartCoroutine(_pickedItem.MoveToPosition(func(_pickedItem), collectSpeed));
             _pickedItem = null;
+            
+            _putSound.Play();
             
             _tryingCollect = false;
             yield return null;

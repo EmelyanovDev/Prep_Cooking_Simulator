@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Sounds;
 using UnityEngine;
 
 namespace Ordering
@@ -10,6 +12,10 @@ namespace Ordering
         [SerializeField] private Transform ordersContainer;
 
         private List<OrderView> _orderViews = new List<OrderView>();
+        
+        private SoundsCall _soundsCall;
+        private AudioSource _errorSound;
+        private AudioSource _orderSound;
 
         private static OrdersDisplay _instance;
 
@@ -22,11 +28,20 @@ namespace Ordering
             }
         }
 
+        private void Awake()
+        {
+            _soundsCall = SoundsCall.Instance;
+            _errorSound = _soundsCall.ErrorSound;
+            _orderSound = _soundsCall.ActionSound;
+        }
+
         public void DisplayNewOrder(Order order)
         {
             OrderView newOrder = Instantiate(orderTemplate, ordersContainer);
             newOrder.Init(order);
             _orderViews.Add(newOrder);
+
+            _orderSound.Play();
         }
 
         public void DeleteOrder(Order order)
@@ -34,6 +49,8 @@ namespace Ordering
             OrderView view = FindOrderView(order);
             _orderViews.Remove(view);
             Destroy(view.gameObject);
+            
+            _errorSound.Play();
         }
 
         private OrderView FindOrderView(Order order)

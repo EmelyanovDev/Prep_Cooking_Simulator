@@ -1,5 +1,6 @@
 ﻿using Player;
 using SaveSystem;
+using Sounds;
 using UI;
 using UnityEngine;
 
@@ -10,6 +11,9 @@ namespace Skins
         private PlayerSkin _playerSkin;
         private Money _money;
         private JsonSaveSystem _saveSystem;
+        private SoundsCall _soundsCall;
+        private AudioSource _skinSound;
+        private AudioSource _errorSound;
 
         private static SkinsHub _instance;
 
@@ -27,7 +31,12 @@ namespace Skins
         {
             _money = Money.Instance;
             _playerSkin = PlayerSkin.Instance;
+            _soundsCall = SoundsCall.Instance;
+            
             _saveSystem = new JsonSaveSystem();
+
+            _skinSound = _soundsCall.SkinSound;
+            _errorSound = _soundsCall.ErrorSound;
         }
 
         private void Start()
@@ -42,12 +51,13 @@ namespace Skins
         {
             if (_saveSystem.Load().boughtSkins.Contains(skin) || TryBuySkin(skin))
             {
+                _skinSound.Play();
                 PutOnSkin(skin);
                 return true;
             }
             else
             {
-                Debug.Log("Not enough money || skin not bought");
+                _errorSound.Play();
                 return false;
             }
         }

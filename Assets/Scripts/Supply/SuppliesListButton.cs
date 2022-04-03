@@ -1,3 +1,4 @@
+using Sounds;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +10,12 @@ namespace Supply
         [SerializeField] private GameObject suppliesMenu;
 
         private Button _button;
+        private AudioSource _buttonSound;
 
         private void Awake()
         {
             _button = GetComponent<Button>();
+            _buttonSound = SoundsCall.Instance.ActionSound;
         }
 
         private void OnEnable()
@@ -27,6 +30,7 @@ namespace Supply
 
         private void MenuSwitching()
         {
+            _buttonSound.Play();
             suppliesMenu.SetActive(!suppliesMenu.activeSelf);
         }
     }
