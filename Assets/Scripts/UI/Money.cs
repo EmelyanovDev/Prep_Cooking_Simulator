@@ -45,5 +45,13 @@ namespace UI
             PlayerPrefs.SetInt(moneyKey, moneyCount);
             return true;
         }
+
+        public void ResetMoney()
+        {
+            moneyCount = 0;
+            _moneyText.text = moneyCount.ToString();
+        
+            PlayerPrefs.SetInt(moneyKey, moneyCount);
+        }
     }
 }

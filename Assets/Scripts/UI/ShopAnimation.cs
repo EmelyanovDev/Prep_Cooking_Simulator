@@ -13,22 +13,28 @@ namespace UI
         private Vector2 _targetPosition;
         
         private RectTransform _selfTransform;
-        
+
         private void Awake()
         {
             _selfTransform = GetComponent<RectTransform>();
-            
+
             _startPosition = _selfTransform.anchoredPosition;
             _targetPosition = _startPosition;
+
+            endPosition.y = _selfTransform.anchoredPosition.y;
         }
 
         private void Update()
         {
-            if (_selfTransform.anchoredPosition != _targetPosition)
-            {
-                float move = moveSpeed * Time.deltaTime;
-                _selfTransform.anchoredPosition = Vector2.MoveTowards(_selfTransform.anchoredPosition, _targetPosition, move);
-            }
+            MoveToTarget();
+        }
+
+        private void MoveToTarget()
+        {
+            if (_selfTransform.anchoredPosition == _targetPosition) return;
+            
+            float move = moveSpeed * Time.deltaTime;
+            _selfTransform.anchoredPosition = Vector2.MoveTowards(_selfTransform.anchoredPosition, _targetPosition, move);
         }
 
         private void OnEnable()

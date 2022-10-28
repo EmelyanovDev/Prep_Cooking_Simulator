@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderIcon: {fileID: 21300000, guid: c661c63adbbaba64b82ac0c3562daa89, type: 3}
   orderRecipe: 040000000100000003000000060000000200000001000000
-  orderDuration: 120
+  orderDuration: 180
